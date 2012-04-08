@@ -6,6 +6,7 @@ gem 'arel'#,      :git => 'git://github.com/rails/arel.git'
 
 gem 'sqlite3'
 
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,7 +19,7 @@ end
 
 group :test, :development do
   gem 'rspec-rails', "~> 2.6"
-  gem "webrat"
+  gem "capybara"
 end
 
 gem 'jquery-rails'

@@ -7,6 +7,15 @@
         =csrf_meta_tags
     
     %body
-        %h1 iHiD
-        =yield
-        
+        %header
+            .inner
+                %h1 iHiD - Home of Jeremy Walker
+
+        #main
+            %nav
+                %h3 Projects
+                -@projects.each do |project|
+                    %h4= link_to project.name, project
+            
+            #content
+                =yield

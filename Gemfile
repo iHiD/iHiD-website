@@ -7,6 +7,7 @@ gem 'arel'#,      :git => 'git://github.com/rails/arel.git'
 gem 'sqlite3'
 
 gem 'haml'
+gem 'friendly_id'
 
 # Gems used only for assets and not required
 # in production environments by default.

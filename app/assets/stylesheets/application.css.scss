@@ -1,0 +1,48 @@
+@import "normalize.css.scss";
+
+$width: 1000px;
+$nav_width: 200px;
+$nav_border_width: 1px;
+$nav_padding: 20px;
+$main_padding: 20px;
+$content_width: $width - $nav_width - $nav_border_width - (2 * $nav_padding) - (2 * $main_padding);
+
+body {
+    font-family:Arial;
+    font-size:13pt;
+    margin:0px;
+    background:lightgreen;
+}
+
+header {
+    background:lightblue;
+    border-bottom:1px solid blue;
+    .inner {
+        width:$width;
+        margin:0px auto;
+    }
+    h1 {
+      margin:0px;
+      padding:20px 20px 100px 20px;
+    }
+}
+#main {
+    width:$width;
+    margin:0px auto;
+    nav {
+        float:right;
+        width:$nav_width;
+        padding:$nav_padding;
+        border-left:$nav_border_width solid green;
+        margin-left:-1px;
+    }
+    #content {
+        float:left;
+        width:$content_width;
+        padding:$main_padding;
+        border-right:$nav_border_width solid green;
+    }
+    h2:first-child {
+        margin-top:0px;
+    }
+}

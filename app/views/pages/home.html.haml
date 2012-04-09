@@ -1,0 +1,4 @@
+%h2 Hello
+%h2 Projects
+-@projects.each do |project|
+    %h3= link_to project.name, project

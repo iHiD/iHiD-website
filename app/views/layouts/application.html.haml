@@ -1,7 +1,7 @@
 !!! 5
 %html
     %head
-        %title iHiD
+        %title= html_title
         =stylesheet_link_tag "application", :media => "all"
         =javascript_include_tag "application"
         =csrf_meta_tags
@@ -10,12 +10,11 @@
         %header
             .inner
                 %h1 iHiD - Home of Jeremy Walker
-
+        #header_shadow
         #main
             %nav
                 %h3 Projects
-                -@projects.each do |project|
-                    %h4= link_to project.name, project
+                =render "projects/nav"
             
             #content
                 =yield

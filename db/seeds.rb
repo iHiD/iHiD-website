@@ -24,3 +24,11 @@ Project.create!(
   github_url:       "http://github.com/ihid/simple_ios_widgets",
   template:         "simple_ios_widgets"
 )
+
+Project.create!(
+  name:             "This Website",
+  descriptive_name: "The Source Code of ihid.co.uk",
+  description:      "This website is open-source. Read the code, use the code, fork the code - it's up to you.",
+  github_url:       "http://github.com/ihid/website",
+  template:         "website"
+)

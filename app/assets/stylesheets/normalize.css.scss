@@ -1,4 +1,4 @@
-$font-family: "helvetica";
+$font-family: "freight-sans-pro";
 
 /*! normalize.css 2012-03-11T12:53 UTC - http://github.com/necolas/normalize.css */
 
@@ -83,6 +83,7 @@ input,
 select,
 textarea {
     font-family: $font-family;
+    font-weight:300;
 }
 
 /*

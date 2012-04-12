@@ -20,12 +20,15 @@ h2, h3, h4, h5 {
   font-weight:300;
 }
 
+header .inner, #main, footer {
+    width:$width;
+    margin:0px auto;
+}
+
 header {
     background:$color_1;
     color:#fff;
     .inner {
-        width:$width;
-        margin:0px auto;
         position:relative;
         #header_image {
             border:5px solid $color_3;
@@ -56,8 +59,7 @@ header {
     background: -webkit-linear-gradient(top, $color_1, rgba(0,0,0,0.7));
 }
 #main {
-    width:$width;
-    margin:0px auto;
+    overflow:hidden;
     nav {
         float:right;
         width:$nav_width;
@@ -75,4 +77,8 @@ header {
     h2:first-child {
         margin-top:0px;
     }
+}
+footer {
+    border-top:1px solid $color_2;
+    padding:10px 0px;
 }

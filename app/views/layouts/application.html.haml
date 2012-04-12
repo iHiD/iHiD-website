@@ -13,14 +13,23 @@
         %header
             .inner
                 %h1 iHiD
-                %h2 Home of Jeremy Walker
+                %h2 The online home of Jeremy Walker
                 =image_tag "header_image.jpg", id: "header_image"
         
         #header_shadow
         #main
             %nav
-                %h3 Projects
-                =render "projects/nav"
+                %h3 Introduction
+                %ul 
+                    %li= link_to "Home", root_path
+                    %li= link_to "About Me", page_path('personal')
+                    %li= link_to "About My Work", page_path('professional')
+                %h3 More Interesting Stuff
+                %ul
+                    %li= link_to "My Blog", "#"
+                    %li 
+                        =link_to "Open Source Contributions", projects_path
+                        =render "projects/nav"
             
             #content
                 =yield

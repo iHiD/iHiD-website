@@ -67,6 +67,20 @@ header {
         border-left:$nav_border_width solid $color_2;
         margin-left:-$nav_border_width;
         padding-top:70px;
+        
+        h3 {
+            margin-bottom:5px;
+        }
+        ul {
+            margin-top:0px;
+            padding-left:15px;
+            li {
+                padding-bottom:10px;
+                ul {
+                    padding-top:10px;
+                }
+            }
+        }
     }
     #content {
         float:left;

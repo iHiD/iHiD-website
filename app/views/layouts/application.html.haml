@@ -12,8 +12,8 @@
     %body
         %header
             .inner
-                %h1 iHiD
-                %h2 The online home of Jeremy Walker
+                %h1= link_to "iHiD", root_path
+                %h2= link_to "The online home of Jeremy Walker", root_path
                 =image_tag "header_image.jpg", id: "header_image"
         
         #header_shadow
@@ -24,15 +24,14 @@
                     %li= link_to "Home", root_path
                     %li= link_to "About Me", page_path('personal')
                     %li= link_to "About My Work", page_path('professional')
-                %h3 More Interesting Stuff
-                %ul
+                %h3 My Thoughts
+                %ul 
                     %li= link_to "My Blog", "#"
-                    %li 
-                        =link_to "Open Source Contributions", projects_path
-                        =render "projects/nav"
+                %h3 Open Source
+                =render "projects/nav"
             
             #content
-                =yield
+                =content_for?(:content) ? yield(:content) : yield
         %footer
             &copy; Jeremy Walker 2012
             .powered_by Designed and created by me, powered by #{link_to "Rails", "http://www.rubyonrails.org"}.

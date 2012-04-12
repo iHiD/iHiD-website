@@ -1,0 +1,9 @@
+-content_for :content do
+    #project
+        =link_to "View on Github", @project.github_url, class: "repository_url"
+        %h2= @project.descriptive_name
+        .description= @project.description
+
+        =yield
+    
+=render :template => 'layouts/application'

@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
       return false
     end
     
-    render template: "projects/#{@project.template}"
+    render template: "projects/#{@project.template}", layout: "project"
   end
   
 end

@@ -1,7 +1,7 @@
 @import "normalize.css.scss";
 
 $width: 1000px;
-$nav_width: 215px;
+$nav_width: 220px;
 $nav_border_width: 0px;
 $nav_padding: 20px;
 $main_padding: 30px;
@@ -45,16 +45,22 @@ header {
         }
     }
     h1 {
-      margin:0px;
-      padding:10px 0px 0px 0px;
-      font-size:80px;
-      font-weight:300;
+        margin:0px;
+        padding:10px 0px 0px 0px;
+        a {
+            font-size:80px;
+            font-weight:300;
+            color:#fff;
+        }
     }
     h2 {
-      margin:0px;
-      padding:0px 0px 10px 0px;
-      font-size:30px;
-      font-weight:300;
+        margin:0px;
+        padding:0px 0px 10px 0px;
+        a {
+          font-size:30px;
+          color:#fff;
+          font-weight:300;
+        }
     }
 
 }
@@ -74,19 +80,19 @@ header {
         margin-top:85px;
         
         h3 {
-            margin-bottom:5px;
+            margin-bottom:10px;
+            border-bottom:1px solid $color_2;
+            padding-left:20px;
+            float:right;
             &:first-child {
                 margin-top:0px;
             }
         }
         ul {
+            clear:both;
             margin-top:0px;
-            padding-left:15px;
             li {
                 padding-bottom:10px;
-                ul {
-                    padding-top:10px;
-                }
             }
         }
     }
@@ -95,7 +101,7 @@ header {
         width:$content_width;
         padding:$main_padding $main_padding $main_padding 0px;
     }
-    h2:first-child {
+    h2:first-of-type {
         margin-top:0px;
     }
 }
@@ -105,6 +111,7 @@ footer {
     
     .powered_by {
         float:right;
-    }
-    
+    }   
 }
+
+@import "projects.css.scss";

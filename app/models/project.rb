@@ -1,9 +1,9 @@
 class Project < ActiveRecord::Base
   extend FriendlyId
   
-  attr_accessible :name, :action
+  attr_accessible :name, :template
   friendly_id :name, use: :slugged
   
   validates :name, presence: true
-  validates :action, presence: true
+  validates :template, presence: true
 end

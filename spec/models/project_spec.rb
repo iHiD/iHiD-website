@@ -5,10 +5,10 @@ describe Project do
     Project.create(name:"").errors[:name].should_not be_blank
   end
   it "requires an action" do
-    Project.create(action:"").errors[:action].should_not be_blank
+    Project.create(template:"").errors[:template].should_not be_blank
   end
   it "gets a sensible slug" do
-    Project.create!(name:"hello").slug.should == "hello"
-    Project.create!(name:"hello world").slug.should == "hello-world"
+    Project.create!(name:"hello", template:"foobar").slug.should == "hello"
+    Project.create!(name:"hello world", template:"foobar").slug.should == "hello-world"
   end
 end

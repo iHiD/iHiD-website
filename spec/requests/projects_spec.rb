@@ -15,7 +15,7 @@ describe "Projects" do
       page.should have_selector("h2", text:"My Projects")
     end
     it "renders the correct page if there is a project" do
-      Project.create!(name:"foobar", action: "foobar")
+      Project.create!(name:"foobar", template: "foobar")
       lambda {visit project_path("foobar")}.should raise_error(ActionView::MissingTemplate, /Missing template projects\/foobar/)
     end
   end

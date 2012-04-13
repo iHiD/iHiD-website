@@ -4,13 +4,7 @@ class ProjectsController < ApplicationController
   end
   
   def show
-    begin
-      @project = Project.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      redirect_to projects_path
-      return false
-    end
-    
+    @project = Project.find(params[:id])    
     render template: "projects/#{@project.template}", layout: "project"
   end
   

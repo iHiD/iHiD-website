@@ -4,13 +4,7 @@ class PagesController < ApplicationController
   end
   
   def show
-    begin
-      @page = Project.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      redirect_to pages_path
-      return false
-    end
-    
+    @page = Project.find(params[:id])    
     render template: "pages/#{@page.template}"
   end
 end

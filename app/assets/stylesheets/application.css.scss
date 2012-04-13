@@ -66,8 +66,8 @@ header {
 }
 
 #header_shadow {
-    height:5px;
-    background: -webkit-linear-gradient(top, $color_1, rgba(0,0,0,0.7));
+    height:6px;
+    background: -webkit-linear-gradient(top, $color_1, $color_3);
 }
 #main {
     overflow:hidden;
@@ -92,7 +92,7 @@ header {
             clear:both;
             margin-top:0px;
             li {
-                padding-bottom:10px;
+                padding-bottom:5px;
             }
         }
     }

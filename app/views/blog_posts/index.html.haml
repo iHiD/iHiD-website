@@ -1,0 +1,7 @@
+%h2 Recent Blog Posts
+
+-@blog_posts.each do |post|
+    .post
+        %h3= post.title
+        .content= truncate strip_tags(post.content), length:200
+        = link_to "Read more", post

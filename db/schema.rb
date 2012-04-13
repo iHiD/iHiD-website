@@ -11,14 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120409000945) do
+ActiveRecord::Schema.define(:version => 20120413134915) do
 
-  create_table "projects", :force => true do |t|
-    t.string   "name",       :null => false
+  create_table "blog_posts", :force => true do |t|
+    t.string   "title",      :null => false
+    t.text     "content",    :null => false
     t.string   "slug",       :null => false
-    t.string   "action",     :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "slug",       :null => false
+    t.string   "template",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "pages", ["slug"], :name => "index_pages_on_slug", :unique => true
+
+  create_table "projects", :force => true do |t|
+    t.string   "name",             :null => false
+    t.string   "descriptive_name", :null => false
+    t.text     "description",      :null => false
+    t.string   "github_url",       :null => false
+    t.string   "slug",             :null => false
+    t.string   "template",         :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true

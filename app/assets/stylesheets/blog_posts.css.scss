@@ -1,3 +1,11 @@
 // Place all the styles related to the blog_posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#blog_post {
+    h2 {
+        margin-bottom:0px;
+    }
+    .date {
+        font-size:15px;
+    }
+}

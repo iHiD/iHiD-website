@@ -38,8 +38,8 @@ BlogPost.create!(
   content: <<-EOS
 <p>I just lost an hour of my life on this issue, so hopefully I'll save someone else the waste!</p>
 <p>My code:</p>
-<script src="http://gist.github.com/2059.js"></script>
-<div>
+
+<pre><code class="ruby">
 require 'spec_helper'
 describe ExamsController do
   it "should present the user with the new exam form" do
@@ -47,18 +47,19 @@ describe ExamsController do
     response.should have_selector('form#new_practice_exam_form')
   end
 end
-</div>
+</code></pre>
 
 
 <p>The output:
+<pre><code>
 <div>Failure/Error: response.should have_selector("<form#new_practice_exam_form/>")
 expected following output to contain a tag:
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;
-</div>
+</code></pre>
 <p>Firstly, ignore the weird form tag it suggests it's looking for - this is a red herring. Webrat just outputs error messages badly.<p>
 
 <p>The actual issue is simply that the HTML is not being rendered. By default, the views are not rendered in controller tests. One line of code fixes this:
-<div>
+<pre><code class="ruby">
 require 'spec_helper'
  
 describe ExamsController do
@@ -68,7 +69,7 @@ describe ExamsController do
     response.should have_selector('form#new_practice_exam_form')
   end
 end
-</div>
+</code></pre>
 
 <p>Hope that helps someone!!</p>
 

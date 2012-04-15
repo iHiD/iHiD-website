@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/matthuhiggins/foreigner.git
+  revision: e72ab9c454c156056d3f037d55e3359cd972af32
+  specs:
+    foreigner (1.1.6)
+      activerecord (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -144,6 +151,7 @@ DEPENDENCIES
   arel
   capybara
   coffee-rails
+  foreigner!
   friendly_id
   haml
   journey

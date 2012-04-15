@@ -1,6 +1,6 @@
-class CreateComments < ActiveRecord::Migration
+class CreateBlogComments < ActiveRecord::Migration
   def change
-    create_table :comments do |t|
+    create_table :blog_comments do |t|
       t.integer :blog_post_id, null:false
       
       t.string  :user_name,  null: false

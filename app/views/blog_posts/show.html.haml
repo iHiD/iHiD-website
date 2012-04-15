@@ -6,7 +6,7 @@
         
     %h2 Comments
     
-    =form_for [@blog_post, Comment.new] do |f|
+    =form_for [@blog_post, BlogComment.new] do |f|
         %div Your Name:
         =f.text_field :user_name
         
@@ -19,7 +19,8 @@
         =submit_tag "Post Comment"
         
     -if(@blog_post.comments.size > 0)
-        =render partial: "comments/comment", collection: @blog_post.comments
+        .comments
+            =render partial: "blog_comments/comment", collection: @blog_post.comments
     -else
         .no_comments No-one has posted a comment yet. Be the first!
         

@@ -13,15 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20120413170616) do
 
-  create_table "blog_posts", :force => true do |t|
-    t.string   "title",      :null => false
-    t.text     "content",    :null => false
-    t.string   "slug",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "comments", :force => true do |t|
+  create_table "blog_comments", :force => true do |t|
     t.integer  "blog_post_id",                    :null => false
     t.string   "user_name",                       :null => false
     t.string   "user_email",                      :null => false
@@ -29,6 +21,14 @@ ActiveRecord::Schema.define(:version => 20120413170616) do
     t.boolean  "verified",     :default => false, :null => false
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+  end
+
+  create_table "blog_posts", :force => true do |t|
+    t.string   "title",      :null => false
+    t.text     "content",    :null => false
+    t.string   "slug",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "pages", :force => true do |t|

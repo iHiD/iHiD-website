@@ -1,7 +1,7 @@
 Blog::Application.routes.draw do
 
   resources :blog_posts, path: 'blog' do
-    resources :comments 
+    resources :blog_comments 
   end
 
   resources :projects

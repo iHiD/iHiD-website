@@ -4,6 +4,6 @@ class BlogPost < ActiveRecord::Base
   attr_accessible :title, :content, :created_at
   friendly_id :title, use: :slugged
   
-  has_many :comments
+  has_many :comments, class_name: "BlogComment"
   
 end

@@ -9,3 +9,19 @@
         font-size:15px;
     }
 }
+
+#blog_posts {
+    .blog_post {
+        color:#000;
+        h3 {
+            margin-bottom:10px;
+            border-bottom:1px solid $color_2;
+            text-shadow: 0px 1px 1px #ccc;
+        }
+        .read_more {
+            display:block;
+            margin-top:10px;
+            color:$color_1;
+        }
+    }
+}

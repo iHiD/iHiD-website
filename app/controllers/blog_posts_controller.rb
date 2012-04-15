@@ -1,7 +1,7 @@
 class BlogPostsController < ApplicationController
   
   def index
-    @blog_posts = BlogPost.all
+    @blog_posts = BlogPost.order("created_at desc")
   end
   
   def show

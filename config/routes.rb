@@ -1,8 +1,11 @@
 Blog::Application.routes.draw do
 
+  resources :blog_posts, path: 'blog' do
+    resources :comments 
+  end
+
   resources :projects
   resources :pages
-  resources :blog_posts, path: 'blog'
 
   root :to => 'pages#index'
 

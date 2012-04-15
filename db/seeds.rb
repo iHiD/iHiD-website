@@ -35,6 +35,7 @@ Project.create!(
 
 BlogPost.create!(
   title: "Testing views with Rails 3, Rspec 2 and Webrat",
+  created_at: Date.new(2011, 5, 10),
   content: <<-EOS
 <p>I just lost an hour of my life on this issue, so hopefully I'll save someone else the waste!</p>
 <p>My code:</p>
@@ -74,5 +75,44 @@ end
 <p>Hope that helps someone!!</p>
 
 <p><em>Update:As Snuggs points out in his comment below, if you find yourself testing view code in the controller, you're probably doing something wrong. View tests and integration (or request) tests are the correct place for this.</em></p>
+EOS
+)
+
+
+BlogPost.create!(
+  title: "Creating an EC2 webserver using Amazon's basic AMI.",
+  created_at: Date.new(2011, 5, 17),
+  content: <<-EOS
+<p>Today I setup a new x64 server on EC2 using Amazon's homemade AMI.</p>
+<p>This is the bash script I wrote to replicate what I did. It should set you up with a working Apache/Passenger/mysql install, along with Memcached and Imagemagick.</p>
+<p>Note: This will not configure a MySQL server as I'm talking to Amazon RDS.</p>
+
+<pre><code class="bash">
+sudo yum install -y httpd httpd-devel mysql mysql-devel git patch gcc gcc-devel make zlib-devel curl-devel openssl openssl-devel gcc gcc-c++ kernel-devel libxml2-devel ImageMagick ImageMagick-devel libxslt libxslt-devel memcached
+ 
+bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)
+echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' &gt;&gt; ~/.bash_profile
+source .bash_profile
+rvm install 1.9.2
+rvm use 1.9.2 --default
+gem install passenger
+passenger-install-apache2-module
+ 
+echo 'export rvm_pretty_print_flag=1' &gt;&gt; ~/.rvmrc.
+ 
+sudo chkconfig httpd on
+sudo chkconfig memcached on
+ 
+mkdir ~/tmp
+git clone git://github.com/drogus/apache-upload-progress-module.git ~/tmp/progress
+cd ~/tmp/progress
+sudo apxs -c -i -a mod_upload_progress.c
+ 
+echo "Now copy these lines into httpd.conf. CHECK THE PASSENGER VERSION"
+echo "LoadModule passenger_module /home/ec2-user/.rvm/gems/ruby-1.9.2-p180/gems/passenger-3.0.7/ext/apache2/mod_passenger.so"
+echo "PassengerRoot /home/ec2-user/.rvm/gems/ruby-1.9.2-p180/gems/passenger-3.0.7"
+echo "PassengerRuby /home/ec2-user/.rvm/wrappers/ruby-1.9.2-p180/ruby"
+echo "LoadModule upload_progress_module /usr/lib64/httpd/modules/mod_upload_progress.so"
+</code></pre>
 EOS
 )

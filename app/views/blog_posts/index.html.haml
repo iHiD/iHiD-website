@@ -1,7 +1,8 @@
 %h2 Recent Blog Posts
 
--@blog_posts.each do |post|
-    .post
-        %h3= post.title
-        .content= truncate strip_tags(post.content), length:200
-        = link_to "Read more", post
+#blog_posts
+    -@blog_posts.each do |post|
+        =link_to post, class: 'blog_post' do
+            %h3= post.title
+            .content= truncate strip_tags(post.content), length:200
+            .read_more Read More

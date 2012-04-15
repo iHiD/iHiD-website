@@ -3,3 +3,23 @@
     .date Written on #{@blog_post.created_at.strftime("%A %b #{@blog_post.created_at.day.ordinalize} %Y")}
     .content
         =raw @blog_post.content
+        
+    %h2 Comments
+    
+    =form_for [@blog_post, Comment.new] do |f|
+        %div Your Name:
+        =f.text_field :user_name
+        
+        %div Your Email (so we can tell you if someone replies):
+        =f.text_field :user_name
+        
+        %div Your Comment
+        =f.text_area :content
+        
+        =submit_tag "Post Comment"
+        
+    -if(@blog_post.comments.size > 0)
+        =render partial: "comments/comment", collection: @blog_post.comments
+    -else
+        .no_comments No-one has posted a comment yet. Be the first!
+        

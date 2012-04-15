@@ -1,0 +1,12 @@
+
+=form_for [blog_post, BlogComment.new] do |f|
+    %div Your Name:
+    =f.text_field :user_name
+    
+    %div Your Email (so we can tell you if someone replies):
+    =f.text_field :user_email
+    
+    %div Your Comment
+    =f.text_area :content
+    
+    =submit_tag "Post Comment"

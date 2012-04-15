@@ -5,22 +5,11 @@
         =raw @blog_post.content
         
     %h2 Comments
-    
-    =form_for [@blog_post, BlogComment.new] do |f|
-        %div Your Name:
-        =f.text_field :user_name
+    =render "blog_comments/new", blog_post: @blog_post
         
-        %div Your Email (so we can tell you if someone replies):
-        =f.text_field :user_name
-        
-        %div Your Comment
-        =f.text_area :content
-        
-        =submit_tag "Post Comment"
-        
-    -if(@blog_post.comments.size > 0)
-        .comments
+    .comments
+        -if(@blog_post.comments.size > 0)
             =render partial: "blog_comments/comment", collection: @blog_post.comments
-    -else
-        .no_comments No-one has posted a comment yet. Be the first!
+        -else
+            .no_comments No-one has posted a comment yet. Be the first!
         

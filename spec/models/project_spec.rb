@@ -8,7 +8,8 @@ describe Project do
     Project.create(template:"").errors[:template].should_not be_blank
   end
   it "gets a sensible slug" do
-    Project.create!(name:"hello", template:"foobar").slug.should == "hello"
-    Project.create!(name:"hello world", template:"foobar").slug.should == "hello-world"
+    defaults = {descriptive_name: "descriptive_name", description: "description", github_url: "github_url", template:"template"}
+    Project.create!(defaults.merge(name:"hello")).slug.should == "hello"
+    Project.create!(defaults.merge(name:"hello world")).slug.should == "hello-world"
   end
 end

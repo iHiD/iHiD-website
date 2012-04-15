@@ -10,13 +10,10 @@ describe "Projects" do
   end
   
   describe "GET project/:id" do
-    it "redirects if there is no project" do
-      visit project_path("foobar")
-      page.should have_selector("h2", text:"My Projects")
-    end
     it "renders the correct page if there is a project" do
-      Project.create!(name:"foobar", template: "foobar")
-      lambda {visit project_path("foobar")}.should raise_error(ActionView::MissingTemplate, /Missing template projects\/foobar/)
+      defaults = {descriptive_name: "descriptive_name", description: "description", github_url: "github_url"}
+      Project.create!(defaults.merge(name: "name", template:"foobar"))
+      lambda {visit project_path("name")}.should raise_error(ActionView::MissingTemplate, /Missing template projects\/foobar/)
     end
   end
 end

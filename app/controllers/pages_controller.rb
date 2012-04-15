@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   end
   
   def show
-    @page = Project.find(params[:id])    
+    @page = Page.find(params[:id])    
     render template: "pages/#{@page.template}"
   end
 end

@@ -10,13 +10,9 @@ describe "Pages" do
   end
   
   describe "GET page/:id" do
-    it "redirects if there is no page" do
-      visit page_path("foobar")
-      page.should have_selector("h1", :text => "iHiD")
-    end
     it "renders the correct page if there is a page" do
-      Project.create!(name:"foobar", template: "foobar")
-      lambda {visit page_path("foobar")}.should raise_error(ActionView::MissingTemplate, /Missing template pages\/foobar/)
+      Page.create!(name: "somepage", template:"foobar")
+      lambda {visit page_path("somepage")}.should raise_error(ActionView::MissingTemplate, /Missing template pages\/foobar/)
     end
   end
 end

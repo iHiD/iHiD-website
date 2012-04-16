@@ -1,2 +1,3 @@
 $('.comments').append('#{j render 'blog_comments/comment', comment: @comment}')
-$('.no_comments').hide()
+$('.no_comments').remove()
+$('.new_blog_comment').remove()

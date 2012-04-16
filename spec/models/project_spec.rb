@@ -9,6 +9,7 @@ describe Project do
   end
   it "gets a sensible slug" do
     defaults = {descriptive_name: "descriptive_name", description: "description", github_url: "github_url", template:"template"}
+    Project.destroy_all
     Project.create!(defaults.merge(name:"hello")).slug.should == "hello"
     Project.create!(defaults.merge(name:"hello world")).slug.should == "hello-world"
   end

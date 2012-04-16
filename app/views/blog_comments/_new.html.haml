@@ -4,7 +4,7 @@
         =f.label :user_name, "Your Name"
         =f.text_field :user_name
     
-        =f.label :user_email, "Your Email (so we can tell you if someone replies)"
+        =f.label :user_email, raw("Your Email - used for your #{link_to "Gravatar", "http://gravatar.com"} and so we can tell you if someone replies.")
         =f.text_field :user_email
     
         =f.label :content, "What do you want to say?"

@@ -1,5 +1,4 @@
-Page.create!(name:"personal",     template:"personal")
-Page.create!(name:"professional", template:"professional")
+Page.create!(name:"about", template:"about")
 
 Project.create!(
   name:             "belongs_to_enum",

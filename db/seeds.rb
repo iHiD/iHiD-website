@@ -3,8 +3,8 @@ Page.create!(name:"professional", template:"professional")
 
 Project.create!(
   name:             "belongs_to_enum",
-  descriptive_name: "Belongs To Enum (Rails Gem)",
-  description:      "Key/value enums for Rails.",
+  descriptive_name: "belongs_to_enum - C# (or Java) style Enums in Rails",
+  description:      "Adds C# (or Java) style Enums to Rails via a belongs_to_enum method in ActiveRecord",
   github_url:       "http://github.com/ihid/belongs_to_enum",
   template:         "belongs_to_enum"
 )
@@ -78,11 +78,38 @@ end
 EOS
 )
 
-blog_post.comments.create!(
-  user_name: "Snuggles"
-  user_email: "something@example.com"
-  content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+comment = blog_post.comments.create!(
+  user_name: "Snuggles",
+  user_email: "rashaunstovall@gmail.com",
+  content: <<-EOS
+  Or you could just do view specs
+- specs
+- views
+- your_view.html.erb_spec.rb
+
+By default all view specs have a
+:type => :request
+option. You can set your describe type to be the same to get this functionality but this is usually a sign you are testing in the wrong area of your specs. Yes view tests aren't en vogue but at the end of the day you need to know if that form is on the page.
+
+- Regards
+EOS
 )
+comment.created_at = DateTime.new(2011,5,26,14,02)
+comment.save!
+
+comment = blog_post.comments.new(
+  user_name: "Jeremy Walker",
+  user_email: "jez.walker@gmail.com",
+  content: <<-EOS
+Hi Snuggs,
+
+Thanks for your comment. I actually subsequently moved this code into a view test just like you suggested. I also have a request test that checks this in a slightly different way.
+
+I've updated the post to note your comment. Thanks!
+EOS
+)
+comment.created_at = DateTime.new(2011,5,26,14,19)
+comment.save!
 
 BlogPost.create!(
   title: "Creating an EC2 webserver using Amazon's basic AMI.",

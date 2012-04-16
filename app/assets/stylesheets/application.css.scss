@@ -90,7 +90,8 @@ header {
         }
         ul {
             clear:both;
-            margin-top:0px;
+            margin:0px;
+            padding:0px;
             li {
                 padding-bottom:5px;
             }
@@ -105,6 +106,15 @@ header {
         }
         h3+p {
             margin-top:10px;
+        }
+        h3+h4 {
+            margin-top:0px;
+        }
+        h4 {
+            margin-bottom:6px;
+        }
+        h4+p {
+            margin-top:6px;
         }
         em {
             font-weight:normal;

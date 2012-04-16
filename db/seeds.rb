@@ -10,8 +10,8 @@ Project.create!(
 
 Project.create!(
   name:             "super_sti",
-  descriptive_name: "Super STI - Improved single table inheritance for Rails.",
-  description:      "",
+  descriptive_name: "super_sti - Improved single table inheritance for Rails.",
+  description:      "Improves Rails STI by adding a has_extra_data method to ActiveRecord, which invisibly includes an extra data table. It helps keep the database clean by removing the need for nullable columns.",
   github_url:       "http://github.com/ihid/super_sti",
   template:         "super_sti"
 )

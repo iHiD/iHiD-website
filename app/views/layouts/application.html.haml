@@ -31,9 +31,11 @@
                 %ul 
                     %li= link_to "Home", root_path
                     %li= link_to "About Me", page_path('about')
-                %h3 My Thoughts
+                %h3 Recent Blog Posts
                 %ul 
-                    %li= link_to "My Blog", blog_posts_path
+                    -latest_blog_posts.each do |blog_post|
+                        %li= link_to truncate("#{blog_post.title}", length:28), blog_post
+                    %li{style:"margin-top:5px"}= link_to "Browse All Posts", blog_posts_path
                 %h3 Open Source
                 =render "projects/nav"
             

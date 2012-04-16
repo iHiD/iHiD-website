@@ -1,0 +1,46 @@
+%h3 Installation
+%p Use in Rails 3 app. Add this to your Gemfile:
+%pre
+    %code gem "belongs_to_enum"
+
+%h3 Sample Usage
+   
+%h4 Modify Your Database
+%pre
+    %code{class:"ruby"}
+        :plain
+            create_table :users do |t|
+              t.float :role_id
+            end
+     
+%h4 Modify Your Model
+%p Add belongs_to_enum to your class, e.g.
+%pre 
+    %code
+        :plain
+            class User < ActiveRecord::Base
+              belongs_to_enum :role, [:normal, :admin, :superadmin, :suspended]
+            end
+
+%h4 Use it in your models
+%pre 
+    %code{class:"ruby"} scope :admin, where(:role_id => User::Role.admin)
+    
+%h4 Use it in your views
+%pre 
+    %code{class:"ruby"} 
+        :plain
+            =f.select(:role, User::Role.pretty_items)
+            -User::Role.each do |role_title, role_id|
+                \#{role_title} (\#{role_id})
+
+
+%h3 Todo
+%ul 
+    %li Add scopes
+    
+%h3 Contributing
+%p Please feel free to fork and modify this code. 
+%p The project uses rspec for testing. Tests can be run tests with 
+%pre 
+    %code rspec spec/*

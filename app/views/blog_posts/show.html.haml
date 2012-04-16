@@ -5,11 +5,10 @@
         =raw @blog_post.content
         
     %h2 Comments
-    =render "blog_comments/new", blog_post: @blog_post
-        
     .comments
         -if(@blog_post.comments.size > 0)
             =render partial: "blog_comments/comment", collection: @blog_post.comments
         -else
             .no_comments No-one has posted a comment yet. Be the first!
         
+    =render "blog_comments/new", blog_post: @blog_post

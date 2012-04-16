@@ -71,7 +71,6 @@ header {
     background: -webkit-linear-gradient(top, $color_1, $color_3);
 }
 #main {
-    overflow:hidden;
     nav {
         float:right;
         width:$nav_width;
@@ -107,6 +106,7 @@ header {
     }
 }
 footer {
+    clear:both;
     border-top:1px solid $color_2;
     padding:10px 0px;
     
@@ -115,6 +115,7 @@ footer {
     }   
 }
 
+@import "blog_comments.css.scss";
 @import "blog_posts.css.scss";
 @import "pages.css.scss";
 @import "projects.css.scss";

@@ -1,4 +1,4 @@
 .comment
-    =comment.user_name
-    =comment.created_at.strftime("%A %b #{comment.created_at.day.ordinalize} %Y")
-    =comment.content
+    %h3= comment.user_name
+    .date= comment.created_at.strftime("%A %b #{comment.created_at.day.ordinalize} %Y")
+    .content= comment.content

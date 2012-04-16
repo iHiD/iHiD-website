@@ -1,12 +1,13 @@
-
-=form_for [blog_post, BlogComment.new] do |f|
-    %div Your Name:
-    =f.text_field :user_name
+.new_blog_comment
+    %h3 Post a Comment
+    =form_for [blog_post, BlogComment.new], remote:true, html: {class:"new_blog_comment_form"} do |f|
+        =f.label :user_name, "Your Name"
+        =f.text_field :user_name
     
-    %div Your Email (so we can tell you if someone replies):
-    =f.text_field :user_email
+        =f.label :user_email, "Your Email (so we can tell you if someone replies)"
+        =f.text_field :user_email
     
-    %div Your Comment
-    =f.text_area :content
+        =f.label :content, "What do you want to say?"
+        =f.text_area :content
     
-    =submit_tag "Post Comment"
+        =submit_tag "Post Comment"

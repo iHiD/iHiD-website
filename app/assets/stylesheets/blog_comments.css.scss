@@ -1,0 +1,57 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.new_blog_comment {
+    margin-top:10px;
+    border:2px solid $color_2;
+    
+    h3, .new_blog_comment_form {
+        padding:10px;
+    }
+    h3 {
+        margin:0px;
+        background:$color_2;
+        text-shadow: 1px 1px 1px #444;
+        color:#fff;
+        padding:10px;
+    }
+    .new_blog_comment_form {
+        background:#fff;
+    }
+    label {
+        display:block;
+    }
+    input, textarea {
+        display:block;
+        padding:5px;
+        border:1px solid $color_2;
+        box-shadow:0px 0px 5px #aaa;
+        margin:5px 0px 15px 0px;
+    }
+    input {
+        width:200px;
+    }
+    textarea {
+        width:500px;
+        height:150px;
+    }
+    input[type=submit] {
+        background:$color_1;
+        color:#fff;
+        text-shadow: 0px 0px 3px $color_2;
+        margin-bottom:0px;
+    }
+}
+.comment {
+    h3 {
+        margin-bottom:0px;
+    }
+    
+    .date {
+        margin-bottom:10px;
+    }
+    
+    .content {
+        
+    }
+}

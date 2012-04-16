@@ -2,4 +2,4 @@
     =image_tag comment.user_gravatar_url, class:"user_gravatar"
     %h3= comment.user_name
     .date= comment.created_at.strftime("%A %b #{comment.created_at.day.ordinalize} %Y")
-    .content= raw nl2br h(comment.content)
+    .content= raw nl2p h(comment.content)

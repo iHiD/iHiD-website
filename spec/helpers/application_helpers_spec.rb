@@ -12,4 +12,16 @@ describe ApplicationHelper do
       helper.nl2br("foo\nbar").should == "foo<br/>bar"
     end
   end
+  
+  describe "nl2p" do
+    it "should convert new line to <p/>s" do
+      helper.nl2p("foo\nbar").should == "<p>foo</p><p>bar</p>"
+    end
+  end
+  
+  describe "my_age_in_years" do
+    it "should return 28" do
+      helper.my_age_in_years.should == 28
+    end
+  end
 end

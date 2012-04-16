@@ -7,4 +7,8 @@ class BlogComment < ActiveRecord::Base
   validates :user_email, presence:true
   validates :content, presence:true
   
+  def user_gravatar_url
+    gravatar_id = Digest::MD5::hexdigest(user_email).downcase
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=50"
+  end
 end

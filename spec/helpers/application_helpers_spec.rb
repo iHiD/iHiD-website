@@ -27,4 +27,16 @@ describe ApplicationHelper do
       helper.my_age_in_years.should == 28
     end
   end
+  
+  describe "latest_blog_posts" do
+    it "should return latest 5 blog posts" do 
+      BlogPost.destroy_all
+      datetime = Time.now.utc
+      10.times{|x|BlogPost.create(title:"foobar#{x}",content:"content#{x}", created_at: datetime - x.days)}
+      posts = helper.latest_blog_posts
+      posts.size.should == 5
+      posts[0].created_at.should == datetime
+      posts[4].created_at.should == datetime - 4.days
+    end
+  end
 end

@@ -19,4 +19,8 @@ module ApplicationHelper
     years
   end
   
+  def latest_blog_posts
+    BlogPost.order("created_at desc").limit(5)
+  end
+  
 end

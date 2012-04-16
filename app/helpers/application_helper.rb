@@ -8,8 +8,9 @@ module ApplicationHelper
     text.gsub("\n", "<br/>")
   end
   
+  # Converts foo\nbar\n\ncat to "<p>foo<br/>bar</p>cat</p>"
   def nl2p(text)
-    text.split("\n").map{|line|"<p>#{line}</p>"}.join
+    nl2br text.split("\n\n").map{|line|"<p>#{line}</p>"}.join
   end
   
   def my_age_in_years

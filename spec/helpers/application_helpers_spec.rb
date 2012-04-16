@@ -14,8 +14,11 @@ describe ApplicationHelper do
   end
   
   describe "nl2p" do
-    it "should convert new line to <p/>s" do
-      helper.nl2p("foo\nbar").should == "<p>foo</p><p>bar</p>"
+    it "should convert new line to <br/>s" do
+      helper.nl2p("foo\nbar").should == "<p>foo<br/>bar</p>"
+    end
+    it "should convert double new line to <p/>s" do
+      helper.nl2p("foo\n\nbar").should == "<p>foo</p><p>bar</p>"
     end
   end
   

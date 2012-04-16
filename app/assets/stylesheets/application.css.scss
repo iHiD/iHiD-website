@@ -100,6 +100,16 @@ header {
         float:left;
         width:$content_width;
         padding:$main_padding $main_padding $main_padding 0px;
+        h3 {
+            margin-bottom:10px;
+        }
+        h3+p {
+            margin-top:10px;
+        }
+        em {
+            font-weight:bold;
+            
+        }
     }
     h2:first-of-type {
         margin-top:0px;

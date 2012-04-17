@@ -15,6 +15,6 @@
             %td= blog_post.id
             %td= blog_post.title
             %td= blog_post.comments.count
-            %td= link_to "View", blog_post
+            %td= link_to "View", [:admin, blog_post]
             %td= link_to "Edit", edit_admin_blog_post_path(blog_post)
             %td= link_to "Delete", admin_blog_post_path(blog_post), method: :destroy, confirm:"You really want to delete this?"

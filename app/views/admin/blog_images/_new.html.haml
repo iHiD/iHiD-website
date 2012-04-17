@@ -1,0 +1,4 @@
+%h4 Upload New Image
+=form_for [:admin, BlogImage.new], remote: true, html: { multipart: true } do |f|
+    =f.file_field :file
+    =submit_tag "Upload"

@@ -1,5 +1,4 @@
 @import "variables.css.scss";
-@import "admin/blog_posts.css.scss";
 #admin {
     form {
         label {
@@ -31,3 +30,6 @@
         }
     }
 }
+
+@import "admin/blog_posts.css.scss";
+@import "admin/blog_images.css.scss";

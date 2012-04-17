@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417162515) do
+ActiveRecord::Schema.define(:version => 20120417201537) do
 
   create_table "blog_comments", :force => true do |t|
     t.integer  "blog_post_id",                    :null => false
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(:version => 20120417162515) do
     t.boolean  "verified",     :default => false, :null => false
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+  end
+
+  create_table "blog_images", :force => true do |t|
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "blog_posts", :force => true do |t|

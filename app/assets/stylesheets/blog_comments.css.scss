@@ -45,13 +45,22 @@
     }
     .comment 
     {    
+        margin-top:10px;
+        padding-bottom:20px;
+        margin-bottom:20px;
+        border-bottom:1px dotted $color_2;
+        
+        &:last-child {
+            border-bottom:none;
+        }
+            
         img.user_gravatar {
             float: left;
             height: 50px;
             margin-right: 10px;
         }
         h3 {
-            margin-bottom:0px;
+            margin:0px;
         }
     
         .date {
@@ -61,6 +70,13 @@
         .content {
             clear:both;
             margin-left:60px;
+            
+            p:first-child {
+                margin-top:0px;
+            }
+            p:last-child {
+                margin-bottom:0px;
+            }
         }
     }
 }

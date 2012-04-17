@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'haml'
 gem 'friendly_id'
 gem 'foreigner', :git => 'git://github.com/matthuhiggins/foreigner.git'
+gem 'paperclip'
+gem "remotipart", "~> 1.0"
 
 # Gems used only for assets and not required
 # in production environments by default.

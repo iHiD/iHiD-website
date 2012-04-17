@@ -32,12 +32,13 @@ Project.create!(
   template:         "website"
 )
 
+blog_image = BlogImage.create!(file:File.open("lib/import/advertising.png"))
 blog_post = BlogPost.create!(
   title: "Highly Targeted Advertising on ruby-forum.com",
   published_at: Date.new(2011, 5, 18),
   content: <<-EOS
 <p>So, I'm minding my own business reminding myself of the Ruby Hash#inject syntax when I noticed the following ridiculously targeted advertising (we just bought a Mazda RX-8):</p>
-<p><img/></p>
+<p><img src="#{blog_image.file.url(:full_width)}"/></p>
 <p>I'm presuming they add a cookie while I'm browsing quotes and then the advertising provider checks for cookies that can be targeted when I hit their pages. That's very clever.</p>
 EOS
 )

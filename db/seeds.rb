@@ -73,8 +73,7 @@ blog_post = BlogPost.create!(
 <p>I just lost an hour of my life on this issue, so hopefully I'll save someone else the waste!</p>
 <p>My code:</p>
 
-<pre><code class="ruby">
-require 'spec_helper'
+<pre><code class="ruby">require 'spec_helper'
 describe ExamsController do
   it "should present the user with the new exam form" do
     get :index
@@ -85,16 +84,14 @@ end
 
 
 <p>The output:
-<pre><code>
-<div>Failure/Error: response.should have_selector("<form#new_practice_exam_form/>")
+<pre><code>Failure/Error: response.should have_selector("<form#new_practice_exam_form/>")
 expected following output to contain a tag:
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;
 </code></pre>
 <p>Firstly, ignore the weird form tag it suggests it's looking for - this is a red herring. Webrat just outputs error messages badly.<p>
 
 <p>The actual issue is simply that the HTML is not being rendered. By default, the views are not rendered in controller tests. One line of code fixes this:
-<pre><code class="ruby">
-require 'spec_helper'
+<pre><code class="ruby">require 'spec_helper'
  
 describe ExamsController do
   render_views
@@ -152,8 +149,7 @@ BlogPost.create!(
 <p>This is the bash script I wrote to replicate what I did. It should set you up with a working Apache/Passenger/mysql install, along with Memcached and Imagemagick.</p>
 <p>Note: This will not configure a MySQL server as I'm talking to Amazon RDS.</p>
 
-<pre><code class="bash">
-sudo yum install -y httpd httpd-devel mysql mysql-devel git patch gcc gcc-devel make zlib-devel curl-devel openssl openssl-devel gcc gcc-c++ kernel-devel libxml2-devel ImageMagick ImageMagick-devel libxslt libxslt-devel memcached
+<pre><code class="bash">sudo yum install -y httpd httpd-devel mysql mysql-devel git patch gcc gcc-devel make zlib-devel curl-devel openssl openssl-devel gcc gcc-c++ kernel-devel libxml2-devel ImageMagick ImageMagick-devel libxslt libxslt-devel memcached
  
 bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' &gt;&gt; ~/.bash_profile
@@ -181,3 +177,70 @@ echo "LoadModule upload_progress_module /usr/lib64/httpd/modules/mod_upload_prog
 </code></pre>
 EOS
 )
+
+BlogPost.create!(
+  title: "Bug in Rails 3.2 ActiveRecord Store - TypeError: can't convert Symbol into Integer",
+  published_at: DateTime.new(2012, 2, 1, 19, 26),
+  content: <<-EOS
+<p><strong>Update: I've now fixed this and it's been merged into Rails core, so use the master branch is you're having this issue.</strong></p>
+<p>If you have a non-nullable database column that you are using for the db backing of the new ActiveRecord Store in Rails 3.2, you will probably get an error such as:</p>
+
+<pre><code style="ruby">TypeError: can't convert Symbol into Integer
+from .../activerecord-3.2.1/lib/active_record/store.rb:39:in `[]='
+</code></pre>
+
+<p>To fix it, change your column to :null => true</p>
+<p>I've logged an <a href="https://github.com/rails/rails/issues/4840">issue report on github</a>.</p>
+EOS
+)
+
+BlogPost.create!(
+  title: "A scope for returning no records in ActiveRecord",
+  published_at: DateTime.new(2012, 1, 22, 19, 26),
+  content: <<-EOS
+<p><strong>Update: A version by xuanxu has now <a href="https://github.com/rails/rails/pull/4805">been accepted into Rails core</a>.</strong></p>
+<p>I've added a scope for .none which returns no records and skips the database. Check out my <a href="https://github.com/rails/rails/pull/4548">pull request</a> on rails master - any thoughts or improvements are welcome!</p>
+<p>Credit to <a href="https://github.com/xuanxu">xuanxu</a> for the idea.</p>
+EOS
+)
+
+
+BlogPost.create!(
+  title: "Allow escape_attrs on a per tag basis in HAML",
+  published_at: DateTime.new(2012, 1, 22, 19, 04),
+  content: <<-EOS
+<p>I've sent a pull request that allows escape_attrs to be overridden on a per tag basis. This is especially useful for me in using Backbone templates in a certain section of my app, that requires escape_attrs to be set to false, but where I want the rest to be set to true as normal.</p>
+<p>My HAML fork is at <a href="https://github.com/ihid/haml">https://github.com/ihid/haml</a>
+<br/>
+The pull request is at <a href="https://github.com/nex3/haml/pull/483">https://github.com/nex3/haml/pull/483</a>
+</p>
+<p>I'll update this if it gets accepted.</p>
+EOS
+)
+
+BlogPost.create!(
+  title: "Form select tag does not accept ranges in Rails 3.2",
+  published_at: DateTime.new(2012, 1, 22, 13, 54),
+  content: <<-EOS
+<p>Until Rails 3.2 you could pass a range (1..5) as the choices parameter to form.select. This is now broken. However, it still works with select_tag.</p>
+<p>The error message is "ActionView::Template::Error (undefined method `empty?' for x..y:Range)". This is due to a change in the way the code checks for grouped_selects.</p>
+<p>I've fixed this on 3-2-stable and on master, so get the latest version from git and it will work fine for you.</p>
+EOS
+)
+
+
+BlogPost.create!(
+  title: "HAML is broken with Partial Layouts",
+  published_at: DateTime.new(2011, 6, 18, 21, 50),
+  content: <<-EOS
+<p style="color:red">This is now fixed. See <a href="https://github.com/nex3/haml/commit/e617535692d5835541b7b996bf7f235f39e3561b">github</a> for details.<p>
+<p>For a couple of weeks partial layouts have been broken in HAML. I opened an issue at <a href="https://github.com/nex3/haml/issues/403">Github</a>.</p>
+<p>The problem manifests itself by outputting the resulting HTML in the wrong place and sometimes twice.</p>
+<p>The issue was caused by <a href="https://github.com/nex3/haml/commit/10109d4eb1fcaa83d175fe216ba452bef70b2019">this commit</a>, which attempted to "fix #capture when run with a block that returns a string." but broke partial layouts in the process. It did actually cause a test to fail, but it seems that was missed.</p>
+<p>I've made a fork at <a href="https://github.com/ihid/haml">https://github.com/ihid/haml</a> which fixes this regression for now. You can update your Gemfile with:</p>
+
+<pre><code style="ruby">gem 'haml', :git => "git://github.com/ihid/haml.git"
+</code></pre>
+EOS
+)
+

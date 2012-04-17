@@ -11,6 +11,6 @@ class CreateBlogComments < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_foreign_key :comments, :blog_posts, column: :blog_post_id
+    add_foreign_key :blog_comments, :blog_posts, column: :blog_post_id
   end
 end

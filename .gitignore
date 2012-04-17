@@ -9,3 +9,4 @@
 /tmp
 
 /public/system/
+.env

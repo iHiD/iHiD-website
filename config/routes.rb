@@ -14,6 +14,7 @@ Blog::Application.routes.draw do
   resources :projects
   resources :pages
 
+  match "sitemap" => "pages#sitemap"
   root :to => 'pages#index'
 
 end

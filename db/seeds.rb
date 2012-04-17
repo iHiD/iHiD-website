@@ -33,6 +33,39 @@ Project.create!(
 )
 
 blog_post = BlogPost.create!(
+  title: "Highly Targeted Advertising on ruby-forum.com",
+  published_at: Date.new(2011, 5, 18),
+  content: <<-EOS
+<p>So, I'm minding my own business reminding myself of the Ruby Hash#inject syntax when I noticed the following ridiculously targeted advertising (we just bought a Mazda RX-8):</p>
+<p><img/></p>
+<p>I'm presuming they add a cookie while I'm browsing quotes and then the advertising provider checks for cookies that can be targeted when I hit their pages. That's very clever.</p>
+EOS
+)
+comment = blog_post.comments.create!(
+  user_name: "Liz Walker",
+  user_email: "serenthia@gmail.com",
+  content: "Your friendly neighbourhood car insurance comparison site?"
+)
+comment.created_at = DateTime.new(2011,5,18,15)
+comment.save!
+
+comment = blog_post.comments.create!(
+  user_name: "Jeremy Walker",
+  user_email: "jez.walker@gmail.com",
+  content: "Indeed, and I guess I'll still get this even if I tick the \"don't send me stuff\" and \"don't share my details\" boxes - annoying but clever."
+)
+comment.created_at = DateTime.new(2011,5,18,15,4)
+comment.save!
+
+comment = blog_post.comments.create!(
+  user_name: "Alastair Langstaff",
+  user_email: "ali@angelz.com",
+  content: "*Something about ad-block*"
+)
+comment.created_at = DateTime.new(2011,5,18,15,25)
+comment.save!
+
+blog_post = BlogPost.create!(
   title: "Testing views with Rails 3, Rspec 2 and Webrat",
   published_at: Date.new(2011, 5, 10),
   content: <<-EOS

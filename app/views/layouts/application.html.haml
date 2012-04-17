@@ -7,6 +7,8 @@
         =javascript_include_tag "application"
         =csrf_meta_tags
         
+        %link{rel:"canonical", href:"http://www.ihid.co.uk#{request.path}"}
+        
         %script{type:"text/javascript", src:"http://use.typekit.com/oag0rhd.js"}
         %script{type:"text/javascript"} try{Typekit.load();}catch(e){}
         

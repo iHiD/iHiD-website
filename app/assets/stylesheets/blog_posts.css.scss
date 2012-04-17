@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #main #content {
     #blog_post {
-        h2 {
+        h2:first-child {
             margin-bottom:0px;
         }
         .date {

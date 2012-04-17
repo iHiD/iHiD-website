@@ -4,6 +4,9 @@
     .content
         =raw @blog_post.content
         
+    %h2 Share This Post
+    =render "shared/social_links"
+        
     %h2 Comments
     .comments
         -if(@blog_post.comments.size > 0)

@@ -1,0 +1,8 @@
+=form_for [:admin, @blog_post], html: {class:"admin_blog_post_form"} do |f|
+    =f.label :title, "Title"
+    =f.text_field :title
+
+    =f.label :content, "Content"
+    =f.text_area :content
+
+    =f.submit

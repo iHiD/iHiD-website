@@ -1,0 +1,20 @@
+%h2 Blog Posts
+%h3 New Post
+=button_to "Create New Post", new_admin_blog_post_path, method: :get
+
+%h3 Existing Posts
+%table 
+    %tr
+        %th Id
+        %th Title
+        %th Comments
+        %th{colspan:2} Options
+        
+    -@blog_posts.each do |blog_post|
+        %tr
+            %td= blog_post.id
+            %td= blog_post.title
+            %td= blog_post.comments.count
+            %td= link_to "View", blog_post
+            %td= link_to "Edit", edit_admin_blog_post_path(blog_post)
+            %td= link_to "Delete", admin_blog_post_path(blog_post), method: :destroy, confirm:"You really want to delete this?"

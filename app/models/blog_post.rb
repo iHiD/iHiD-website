@@ -6,6 +6,8 @@ class BlogPost < ActiveRecord::Base
   
   has_many :comments, class_name: "BlogComment"
   
+  scope :published, where("published_at IS NOT NULL")
+  
   def is_published?
     published_at
   end

@@ -4,6 +4,7 @@ describe "Blog Comments" do
   describe "GET /" do
     before :each do
       @blog_post = BlogPost.create!(title:"My first post", content: "Some content")
+      @blog_post.publish!
     end
     it "has div for no comments" do
       visit blog_post_path(@blog_post)

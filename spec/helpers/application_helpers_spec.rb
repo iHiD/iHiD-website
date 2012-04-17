@@ -32,11 +32,19 @@ describe ApplicationHelper do
     it "should return latest 5 blog posts" do 
       BlogPost.destroy_all
       datetime = Time.now.utc
-      10.times{|x|BlogPost.create(title:"foobar#{x}",content:"content#{x}", created_at: datetime - x.days)}
+      10.times{|x|BlogPost.create(title:"foobar#{x}",content:"content#{x}", published_at: datetime - x.days)}
       posts = helper.latest_blog_posts
       posts.size.should == 5
-      posts[0].created_at.should == datetime
-      posts[4].created_at.should == datetime - 4.days
+      posts[0].published_at.to_date.should == datetime.to_date
+      posts[4].published_at.to_date.should == datetime.to_date - 4.days
+    end
+    it "should only return published posts" do 
+      BlogPost.destroy_all
+      BlogPost.create!(title:"foobar1",content:"content", published_at: DateTime.now)
+      BlogPost.create!(title:"foobar2",content:"content", published_at: DateTime.now)
+      BlogPost.create!(title:"foobar3",content:"content")
+      posts = helper.latest_blog_posts
+      posts.size.should == 2
     end
   end
 end

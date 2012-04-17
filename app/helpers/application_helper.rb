@@ -20,7 +20,7 @@ module ApplicationHelper
   end
   
   def latest_blog_posts
-    BlogPost.order("created_at desc").limit(5)
+    BlogPost.published.order("published_at desc").limit(5)
   end
   
 end

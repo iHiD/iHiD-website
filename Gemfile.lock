@@ -85,6 +85,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (>= 0.0.2)
       mime-types
+    pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -169,6 +170,7 @@ DEPENDENCIES
   journey
   jquery-rails
   paperclip
+  pg
   rails
   remotipart (~> 1.0)
   rspec-rails (~> 2.6)

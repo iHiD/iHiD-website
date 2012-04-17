@@ -1,2 +1,33 @@
 @import "variables.css.scss";
 @import "admin/blog_posts.css.scss";
+#admin {
+    form {
+        label {
+            display:block;
+        }
+        input, textarea {
+            display:block;
+            padding:5px;
+            border:1px solid $color_2;
+            box-shadow:0px 0px 5px #aaa;
+            margin:5px 0px 15px 0px;
+        }
+        input {
+            width:200px;
+        }
+        textarea {
+            width:700px;
+            height:400px;
+            font-family: "droid-sans-mono", monospace, serif;
+            font-size:0.7em;
+        }
+        input[type=submit] {
+            background:$color_1;
+            color:#fff;
+            text-shadow: 0px 0px 3px $color_2;
+            margin-bottom:0px;
+            padding:5px 40px;
+            width:auto;
+        }
+    }
+}

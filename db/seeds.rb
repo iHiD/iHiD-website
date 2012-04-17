@@ -34,7 +34,7 @@ Project.create!(
 
 blog_post = BlogPost.create!(
   title: "Testing views with Rails 3, Rspec 2 and Webrat",
-  created_at: Date.new(2011, 5, 10),
+  published_at: Date.new(2011, 5, 10),
   content: <<-EOS
 <p>I just lost an hour of my life on this issue, so hopefully I'll save someone else the waste!</p>
 <p>My code:</p>
@@ -112,7 +112,7 @@ comment.save!
 
 BlogPost.create!(
   title: "Creating an EC2 webserver using Amazon's basic AMI.",
-  created_at: Date.new(2011, 5, 17),
+  published_at: Date.new(2011, 5, 17),
   content: <<-EOS
 <p>Today I setup a new x64 server on EC2 using Amazon's homemade AMI.</p>
 <p>This is the bash script I wrote to replicate what I did. It should set you up with a working Apache/Passenger/mysql install, along with Memcached and Imagemagick.</p>

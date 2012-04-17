@@ -1,0 +1,17 @@
+.admin_blog_post_info
+    
+    -if @blog_post.is_published?
+        %h3 This post has been published.
+        =link_to "Edit Post", edit_admin_blog_post_path(@blog_post)
+    -else
+        %h3 This post has NOT been published!
+        =link_to "Edit Post", edit_admin_blog_post_path(@blog_post)
+        &#183;
+        =link_to "Publish Post", publish_admin_blog_post_path(@blog_post), confirm: "Publish Post?", method: :put
+    
+
+#blog_post
+    %h2= @blog_post.title
+    .date Written on #{@blog_post.created_at.strftime("%A %b #{@blog_post.created_at.day.ordinalize} %Y")}
+    .content
+        =raw @blog_post.content

@@ -24,11 +24,12 @@ ActiveRecord::Schema.define(:version => 20120417162515) do
   end
 
   create_table "blog_posts", :force => true do |t|
-    t.string   "title",      :null => false
-    t.text     "content",    :null => false
-    t.string   "slug",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "title",        :null => false
+    t.text     "content",      :null => false
+    t.string   "slug",         :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.datetime "published_at"
   end
 
   create_table "friendly_id_slugs", :force => true do |t|

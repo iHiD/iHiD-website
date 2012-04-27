@@ -117,6 +117,12 @@ header {
         em {
             font-weight:normal;
         }
+        .pre {
+            background:#ddd;
+            font-family: "droid-sans-mono", monospace, serif;
+            font-size: 0.8em;
+            padding:2px;
+        }
     }
     h2:first-of-type {
         margin-top:0px;

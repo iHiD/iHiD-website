@@ -18,4 +18,13 @@ describe BlogPostsController do
     blog_post.publish!
     lambda {get :show, id: blog_post.id}.should_not raise_error
   end
+  
+  it "should correctly set the page's title" do
+    title = "Testing Title Set"
+    blog_post = BlogPost.create!(title:title, content: "Some Content")
+    blog_post.publish!
+    get :show, id: blog_post.id
+    
+    assigns[:metadata][:title].should == title
+  end
 end

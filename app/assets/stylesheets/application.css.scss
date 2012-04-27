@@ -123,6 +123,13 @@ header {
             font-size: 0.8em;
             padding:2px;
         }
+    
+        .social_links {
+            &>div {
+                display:inline-block;
+                vertical-align:top;
+            }
+        }
     }
     h2:first-of-type {
         margin-top:0px;

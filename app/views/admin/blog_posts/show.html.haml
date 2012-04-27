@@ -12,7 +12,7 @@
 
 #blog_post
     %h2= @blog_post.title
-    -if @blog_post.published?
+    -if @blog_post.is_published?
         .date Written on #{@blog_post.published_at.strftime("%A %b #{@blog_post.published_at.day.ordinalize} %Y")}
     .content
         =raw @blog_post.content

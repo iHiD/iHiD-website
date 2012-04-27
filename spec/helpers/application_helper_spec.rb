@@ -5,6 +5,10 @@ describe ApplicationHelper do
     it "should return webpage title by default" do
       helper.html_title.should == "iHiD - Jeremy Walker"
     end
+    it "should return metadata title if present" do
+      @metadata = {title: "foobar"}
+      helper.html_title.should == "foobar - iHiD - Jeremy Walker"
+    end
   end
   
   describe "nl2br" do

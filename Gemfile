@@ -9,6 +9,7 @@ gem 'haml'
 gem 'friendly_id'
 gem 'foreigner', :git => 'git://github.com/matthuhiggins/foreigner.git'
 gem 'paperclip'
+gem 'aws-sdk'
 gem "remotipart", "~> 1.0"
 
 # Gems used only for assets and not required

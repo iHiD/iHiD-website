@@ -35,3 +35,7 @@ Blog::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 end
+
+ENV['AWS_ACCESS_KEY_ID'] = ""
+ENV['AWS_SECRET_ACCESS_KEY'] = ""
+ENV['S3_BUCKET_NAME'] = "ihid"

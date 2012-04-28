@@ -37,13 +37,13 @@ Blog::Application.routes.draw do
     "allow-escape_attrs-on-a-per-tag-basis-in-haml" => "allow-escape_attrs-on-a-per-tag-basis-in-haml",
     "highly-targeted-advertising-on-ruby-forum-com" => "highly-targeted-advertising-on-ruby-forum-com",
     "ranges-not-accepted-for-form-select-tags-in-rails-3-2" => "form-select-tag-does-not-accept-ranges-in-rails-3-2",
-    "bug-in-rails-3-2-activerecord-store-typeerror-cant-convert-symbol-into-integer" => "bug-in-rails-3-2-activerecord-store-typeerror-can-t-convert-symbol-into-integer"
-    "rubygems-1-8-2-broke-my-rake" => "rubygems-1-8-2-broke-my-rake"
-    "bug-in-rails-3-1-when-setting-table_name-when-using-multiple-namespaces" => "bug-in-setting-table_name-when-using-multiple-namespaces"
-    "creating-an-ec2-webserver-using-amazons-basic-ami" => "creating-an-ec2-webserver-using-amazon-s-basic-ami"
-    "iphone-error-the-user-name-or-password-for-imap-gmail-com-is-incorrect" => "iphone-error-the-user-name-or-password-for-imap-gmail-com-is-incorrect"
-    "why-ed-miliband-not-ken-clarke-should-be-apologising-tonight" => "why-ed-miliband-not-ken-clarke-should-be-apologising-tonight"
-    "fixed-foreigner-gem-to-work-with-reversing-migrations-in-rails-3-1" => "fixed-foreigner-gem-to-work-with-reversing-migrations-in-rails-3-1"
+    "bug-in-rails-3-2-activerecord-store-typeerror-cant-convert-symbol-into-integer" => "bug-in-rails-3-2-activerecord-store-typeerror-can-t-convert-symbol-into-integer",
+    "rubygems-1-8-2-broke-my-rake" => "rubygems-1-8-2-broke-my-rake",
+    "bug-in-rails-3-1-when-setting-table_name-when-using-multiple-namespaces" => "bug-in-setting-table_name-when-using-multiple-namespaces",
+    "creating-an-ec2-webserver-using-amazons-basic-ami" => "creating-an-ec2-webserver-using-amazon-s-basic-ami",
+    "iphone-error-the-user-name-or-password-for-imap-gmail-com-is-incorrect" => "iphone-error-the-user-name-or-password-for-imap-gmail-com-is-incorrect",
+    "why-ed-miliband-not-ken-clarke-should-be-apologising-tonight" => "why-ed-miliband-not-ken-clarke-should-be-apologising-tonight",
+    "fixed-foreigner-gem-to-work-with-reversing-migrations-in-rails-3-1" => "fixed-foreigner-gem-to-work-with-reversing-migrations-in-rails-3-1",
     "belongs_to_enum-is-released" => "belongs_to_enum-is-released"
   }.each do |old_url, blog_post_title|
     match old_url => redirect("/blog/#{blog_post_title}")

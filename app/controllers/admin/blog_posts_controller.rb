@@ -45,8 +45,9 @@ class Admin::BlogPostsController < AdminController
   end
 
   def destroy
-    #@blog_post = BlogPost.find(params[:id])
-    #@blog_post.destroy
+    @blog_post = BlogPost.find(params[:id])
+    @blog_post.destroy
+    redirect_to admin_blog_posts_path
   end  
 
   private

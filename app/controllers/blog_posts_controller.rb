@@ -8,7 +8,7 @@ class BlogPostsController < ApplicationController
     @blog_post = BlogPost.find(params[:id])
     raise ActiveRecord::RecordNotFound unless @blog_post.is_published?
     
-    @metadata[:title] = @blog_post.title
+    @metadata[:title] = "#{@blog_post.title} by Jeremy Walker"
   end
   
 end

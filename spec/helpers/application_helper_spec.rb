@@ -3,11 +3,11 @@ require 'spec_helper'
 describe ApplicationHelper do
   describe "html_title" do
     it "should return webpage title by default" do
-      helper.html_title.should == "iHiD - Jeremy Walker"
+      helper.html_title.should == "Jeremy Walker - iHiD"
     end
     it "should return metadata title if present" do
       @metadata = {title: "foobar"}
-      helper.html_title.should == "foobar - iHiD - Jeremy Walker"
+      helper.html_title.should == "foobar"
     end
   end
   

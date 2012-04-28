@@ -25,6 +25,6 @@ describe BlogPostsController do
     blog_post.publish!
     get :show, id: blog_post.id
     
-    assigns[:metadata][:title].should == title
+    assigns[:metadata][:title].should == "#{title} by Jeremy Walker"
   end
 end

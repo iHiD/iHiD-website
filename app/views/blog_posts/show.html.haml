@@ -1,7 +1,13 @@
-#blog_post
-    %h2= @blog_post.title
-    .date Written on #{@blog_post.created_at.strftime("%A %b #{@blog_post.created_at.day.ordinalize} %Y")}
-    .content
+#blog_post{item_scope:'', itemtype:'http://schema.org/BlogPosting'}
+    %h2{itemprop:'name headline'}= @blog_post.title
+    .byline
+        Written by 
+        %span{itemprop:'author', itemscope:'', itemtype:'http://schema.org/Person'}
+            %span{itemprop:'name'}
+                %a{href:"https://plus.google.com/111007558771439626078", rel:'author', itemprop:'url'} Jeremy Walker
+        on 
+        %time{itemprop:'datePublished', datetime: @blog_post.published_at.strftime("%FT%R")}= @blog_post.created_at.strftime("%A %b #{@blog_post.created_at.day.ordinalize} %Y")
+    .content{itemprop:'articleBody'}
         =raw @blog_post.content
         
     %h2 Share This Post

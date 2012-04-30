@@ -18,19 +18,19 @@ Blog::Application.routes.draw do
   ###################
   ## Legacy Routes ##
   ###################
-  match "author/ihid" => redirect("/blog")
+  get "author/ihid" => redirect("/blog")
 
-  match "category/webrat" => redirect("/blog")
-  match "category/uncategorized" => redirect("/blog")
-  match "category/gems/haml" => redirect("/blog")
-  match "category/ruby-on-rails" => redirect("/blog")
-  match "category/ruby-on-rails/ruby-on-rails-3-2/feed" => redirect("/blog")
+  get "category/webrat" => redirect("/blog")
+  get "category/uncategorized" => redirect("/blog")
+  get "category/gems/haml" => redirect("/blog")
+  get "category/ruby-on-rails" => redirect("/blog")
+  get "category/ruby-on-rails/ruby-on-rails-3-2/feed" => redirect("/blog")
 
-  match "page/2" => redirect("/blog")
+  get "page/2" => redirect("/blog")
 
-  match "2011/05" => redirect("/blog")
-  match "2012/01" => redirect("/blog")
-  match "2012/02" => redirect("/blog")
+  get "2011/05" => redirect("/blog")
+  get "2012/01" => redirect("/blog")
+  get "2012/02" => redirect("/blog")
 
   {
     "a-scope-for-returning-no-records-in-activerecord" => "a-scope-for-returning-no-records-in-activerecord",
@@ -45,15 +45,16 @@ Blog::Application.routes.draw do
     "why-ed-miliband-not-ken-clarke-should-be-apologising-tonight" => "why-ed-miliband-not-ken-clarke-should-be-apologising-tonight",
     "fixed-foreigner-gem-to-work-with-reversing-migrations-in-rails-3-1" => "fixed-foreigner-gem-to-work-with-reversing-migrations-in-rails-3-1",
     "belongs_to_enum-is-released" => "belongs_to_enum-is-released"
+    
   }.each do |old_url, blog_post_title|
-    match old_url => redirect("/blog/#{blog_post_title}")
-    match "#{old_url}/feed" => redirect("/blog/#{blog_post_title}")
+    get old_url => redirect("/blog/#{blog_post_title}")
+    get "#{old_url}/feed" => redirect("/blog/#{blog_post_title}")
   end
   ##########################
   ## End of Legacy Routes ##
   ##########################
 
-  match "sitemap" => "pages#sitemap"
+  get "sitemap" => "pages#sitemap"
   root :to => 'pages#index'
 
 end

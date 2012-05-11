@@ -15,8 +15,12 @@
         
     %h2 Comments
     .comments
-        -if(@blog_post.comments.size > 0)
-            =render partial: "blog_comments/comment", collection: @blog_post.comments
+    
+        -if(flash[:awaiting_verification])
+            =render "blog_comments/awaiting_verification"
+    
+        -if(@blog_post.comments.verified.size > 0)
+            =render partial: "blog_comments/comment", collection: @blog_post.comments.verified
         -else
             .no_comments No-one has posted a comment yet. Be the first!
         

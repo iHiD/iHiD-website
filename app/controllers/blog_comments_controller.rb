@@ -5,7 +5,10 @@ class BlogCommentsController < ApplicationController
     @comment = @blog_post.comments.create!(params[:blog_comment])
     
     respond_to do |format|
-      format.html {redirect_to @blog_post}
+      format.html do 
+        flash[:awaiting_verification] = true
+        redirect_to @blog_post
+      end
       format.js {}
     end
   end

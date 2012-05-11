@@ -1,0 +1,10 @@
+%h2 Blog Comments
+%table 
+    %tr
+        %th Id
+        %th Poster
+        %th Comment
+        %th{colspan:2} Options
+        
+    -@comments.each do |comment|
+        =render "admin/blog_comments/comment", comment: comment

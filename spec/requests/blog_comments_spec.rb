@@ -20,7 +20,7 @@ describe "Blog Comments" do
     
     it "should show verified comment if present" do
       comment = @blog_post.comments.create!(user_name: "Jeremy Walker", user_email: "jez.walker@gmail.com", content: "Hello")
-      comment.verified!
+      comment.verify!
       visit blog_post_path(@blog_post)
       page.should have_selector(".comment")
     end

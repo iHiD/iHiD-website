@@ -6,6 +6,9 @@ Blog::Application.routes.draw do
     resources :blog_posts do
       put :publish, on: :member
     end
+    resources :blog_comments do
+      put :verify, on: :member
+    end
   end
 
   resources :blog_posts, path: 'blog' do

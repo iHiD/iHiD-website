@@ -1,0 +1,8 @@
+%tr{id:"comment_#{comment.id}"}
+    %td= comment.id
+    %td #{comment.user_name} (#{comment.user_email})
+    %td= comment.content
+    %td
+        -unless comment.verified?
+            = link_to "Verify&nbsp;·".html_safe, verify_admin_blog_comment_path(comment), method: :put, remote:true
+    %td= link_to "Delete", admin_blog_comment_path(comment), method: :delete, confirm:"You really want to delete this?", remote:true

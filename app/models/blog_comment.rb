@@ -14,7 +14,7 @@ class BlogComment < ActiveRecord::Base
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=50"
   end
   
-  def verified!
+  def verify!
     update_attribute(:verified, true)
   end
 end

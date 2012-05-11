@@ -8,13 +8,17 @@
         %th Id
         %th Title
         %th Comments
-        %th{colspan:2} Options
+        %th{colspan:3} Options
         
     -@blog_posts.each do |blog_post|
         %tr
             %td= blog_post.id
             %td= blog_post.title
             %td= blog_post.comments.count
-            %td= link_to "View", [:admin, blog_post]
+            %td
+                -if blog_post.is_published?
+                    =link_to "View", blog_post
+                -else
+                    =link_to "View", [:admin, blog_post]
             %td= link_to "Edit", edit_admin_blog_post_path(blog_post)
             %td= link_to "Delete", admin_blog_post_path(blog_post), method: :delete, confirm:"You really want to delete this?" 

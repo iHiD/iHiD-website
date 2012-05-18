@@ -17,7 +17,7 @@ class Admin::BlogCommentsController < AdminController
     @comment = BlogComment.find(params[:id])
     @comment.destroy
     respond_to do |format|
-      format.js {}
+      format.js #
       format.html { redirect_to admin_blog_comments_path }
     end
   end  

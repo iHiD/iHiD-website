@@ -8,7 +8,7 @@
 %h2 Recent Blog Posts
 %ul 
     -latest_blog_posts.each do |blog_post|
-        %li= link_to truncate("#{blog_post.title}", length:28), blog_post
+        %li= link_to blog_post.title, blog_post
 
 %h2 My Open Source Projects
 =render "projects/nav"

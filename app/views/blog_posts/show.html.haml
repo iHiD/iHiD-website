@@ -7,6 +7,7 @@
                 %a{href:"https://plus.google.com/111007558771439626078", rel:'author', itemprop:'url'} Jeremy Walker
         on 
         %time{itemprop:'datePublished', datetime: @blog_post.published_at.strftime("%FT%R")}= @blog_post.published_at.strftime("%A %b #{@blog_post.published_at.day.ordinalize} %Y")
+    =render "shared/social_links"
     .content{itemprop:'articleBody'}
         =raw @blog_post.content
         

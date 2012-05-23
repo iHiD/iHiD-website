@@ -12,7 +12,7 @@ describe BlogComment do
     comment = blog_post.comments.create!(user_name: "Jeremy Walker", user_email: "jez.walker@gmail.com", content: "Hello")
     blog_post.comments.verified.count.should == 0
     
-    comment.verified!
+    comment.verify!
     blog_post.comments.verified.count.should == 1
   end
   
@@ -24,7 +24,7 @@ describe BlogComment do
     blog_post = BlogPost.create!(title:"My first post", content: "Some content")
     comment = blog_post.comments.create!(user_name: "Jeremy Walker", user_email: "jez.walker@gmail.com", content: "Hello")
     comment.verified.should == false
-    comment.verified!
+    comment.verify!
     comment.verified.should == true
   end
 end

@@ -3,11 +3,11 @@ require 'spec_helper'
 describe "Blog Posts" do
   
   before :each do
-    #session[:is_admin] = true
+    
   end
   
   it "Creating a blog post" do
-    
+    bypass_authentication
     title = "foobar"
     content = "<p>foobar's content</p>"
     

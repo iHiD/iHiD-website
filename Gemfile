@@ -25,6 +25,7 @@ group :test, :development do
   gem 'rspec-rails', "~> 2.6"
   gem "capybara"
   gem 'capybara-webkit'
+  gem 'rack_session_access'
 end
 
 gem 'jquery-rails'

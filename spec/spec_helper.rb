@@ -34,14 +34,13 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
 end
 
-def bypass_authentication 
-  new_method = AdminController.method(:new)
-  AdminController.stub!(:new).and_return do |*args|
-    controller = new_method.call(*args)
-    controller.should_receive(:check_permissions).and_return(true)
-    controller
+def bypass_authentication
+  AdminController.send(:alias_method, :old_check_permissions, :check_permissions)
+  AdminController.send(:define_method, :check_permissions) do
+    return true
   end
-  #AdminController.send(:define_method, :check_permissions) do
-  #  return true
-  #end
+end
+
+def restore_authentication
+  AdminController.send(:alias_method, :check_permissions, :old_check_permissions)
 end

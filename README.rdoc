@@ -1,3 +1,5 @@
 == iHiD.co.uk
 
+{<img src="https://secure.travis-ci.org/ihid/website.png" />}[http://travis-ci.org/ihid/website]
+
 The personal blog of Jeremy Walker, hosted at http://www.ihid.co.uk

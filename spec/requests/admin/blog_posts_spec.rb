@@ -3,11 +3,13 @@ require 'spec_helper'
 describe "Blog Posts" do
   
   before :each do
-    
+    bypass_authentication
+  end
+  after :each do 
+    restore_authentication
   end
   
   it "Creating a blog post" do
-    bypass_authentication
     title = "foobar"
     content = "<p>foobar's content</p>"
     

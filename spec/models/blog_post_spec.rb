@@ -13,7 +13,7 @@ describe BlogPost do
     BlogPost.destroy_all
     blog_post = BlogPost.create!(title: "Hello", content: "Content")
     blog_post.publish!
-    blog_post.published_at.to_date.should == DateTime.now.to_date
+    blog_post.published_at.utc.to_date.should == DateTime.now.utc.to_date
   end
   
   it "should only return published posts when using the published scope" do

@@ -25,14 +25,11 @@ group :test, :development do
   gem 'rspec-rails', "~> 2.6"
   gem "capybara"
   gem 'capybara-webkit'
-  gem 'rack_session_access'
+  gem 'sqlite3', :platform => [:ruby]
 end
 
 gem 'jquery-rails'
 
-group :development do 
-  gem 'sqlite3'
-end
 group :production do 
   gem "pg"
   gem 'thin'

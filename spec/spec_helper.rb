@@ -5,6 +5,9 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 
+load_schema = lambda {ActiveRecord::Migrator.up('db/migrate')}
+silence_stream(STDOUT, &load_schema) 
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}

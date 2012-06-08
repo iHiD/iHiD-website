@@ -1,3 +1,6 @@
 %h2 My Projects
+%p These are open source projects that I've written.
 #projects
-    
+    %ul
+        -@projects.each do |project|
+            %li= link_to project.name, project

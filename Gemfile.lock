@@ -105,9 +105,6 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    rack_session_access (0.0.2)
-      builder (>= 2.0.0)
-      rack (>= 1.0.0)
     rails (3.2.3)
       actionmailer (= 3.2.3)
       actionpack (= 3.2.3)
@@ -191,7 +188,6 @@ DEPENDENCIES
   jquery-rails
   paperclip
   pg
-  rack_session_access
   rails
   remotipart (~> 1.0)
   rspec-rails (~> 2.6)

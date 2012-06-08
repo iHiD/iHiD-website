@@ -50,13 +50,20 @@ header {
             font-size:80px;
             font-weight:300;
             color:#fff;
+            display:inline-block;
+        }
+        span {
+          font-size:20px;
+          color:#fff;
+          font-weight:300;
+          display:inline-block;
         }
     }
     h2 {
         margin:0px;
         padding:0px 0px 10px 0px;
         a {
-          font-size:30px;
+          font-size:25px;
           color:#fff;
           font-weight:300;
         }
@@ -92,6 +99,13 @@ header {
             padding:0px;
             li {
                 padding-bottom:5px;
+                
+                a.btn {
+                    color: white;
+                    background: $color_1;
+                    padding: 3px 10px;
+                    display: inline-block;
+                }
             }
         }
     }

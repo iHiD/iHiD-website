@@ -38,7 +38,7 @@
         %header{itemscope:'', itemtype:'http://schema.org/WPHeader'}
             .inner
                 %h1= link_to "iHiD", root_path
-                %h2= link_to "The online home of Jeremy Walker", root_path
+                %h2= link_to "by Jeremy Walker - 75kg human · 175g plastic", root_path
                 =image_tag "header_image.jpg", id: "header_image"
         
         #header_shadow
@@ -48,12 +48,14 @@
                 %ul 
                     %li= link_to "Home", root_path
                     %li= link_to "About Me", page_path('about')
+                    %li= link_to "Writing", page_path('writing')
+                    %li= link_to "Projects", projects_path
                 %h3 Recent Blog Posts
                 %ul 
                     -latest_blog_posts.each do |blog_post|
                         %li= link_to truncate("#{blog_post.title}", length:28), blog_post, title:blog_post.title
-                    %li{style:"margin-top:5px"}= link_to "Browse All Posts", blog_posts_path
-                %h3 Open Source
+                    %li{style:"margin-top:5px"}= link_to "Browse All Posts", blog_posts_path, class: "btn"
+                %h3 Open Source Projects
                 =render "projects/nav"
             
             #content

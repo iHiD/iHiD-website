@@ -1,14 +1,22 @@
 %h2 Hello!
-%p Welcome to iHiD. This site is a mixture of information, blog posts, and project homes for things created by me, Jeremy Walker, a 28 year old software developer living from Birmingham, England. 
-%p I'm the technical co-founder of #{link_to "Meducation", "https://www.meducation.net"}, a social education network for medical students and junior doctors. I'm married to Liz and we currently live in #{link_to "Stirchley", "http://en.wikipedia.org/wiki/Stirchley,_West_Midlands"}, just next to Bournville - the home of #{link_to "Cadbury chocolate", "http://en.wikipedia.org/wiki/Cadbury"}.
-%p I am a big believer in open source software and I maintain a few #{link_to "open source projects", projects_path} on #{link_to "Github", "http://github.com/ihid"}. I also contribute to existing projects where I can. If you have a project you'd like some help maintaining, please contact me!
-%p I write my thoughts #{link_to "on my blog", blog_posts_path}. They're mainly to do with technical things, specifically Ruby on Rails issues, but I also occasionally post personal notes.
+%p Welcome to iHiD. This site is a mixture of information, blog posts, and project homes for things created by me, Jeremy Walker, a 28 year old software developer from Birmingham, England. 
+%p I'm the technical co-founder of #{link_to "Meducation", "https://www.meducation.net"}, a social education network for medical students and junior doctors. I am a big believer in open source software and I maintain a few #{link_to "open source projects", projects_path} on #{link_to "Github", "http://github.com/ihid"}. I also contribute to existing projects where I can. If you have a project you'd like some help maintaining, please contact me.
+%p I write my thoughts #{link_to "on my blog", blog_posts_path}. They're mainly to do with technical things, specifically Ruby on Rails issues, but occasionally on other topics. I have started #{link_to "writing for publications", "/writing"}. If you would like me to write for you, please contact me.
 %p You can follow me on #{link_to "Twitter (@iHiD)", "https://twitter.com/ihid"}, stalk me on #{link_to "Github", "http://github.com/ihid"} or contact me #{link_to "via email", "mailto:jez.walker@gmail.com"}.
 
-%h2 Recent Blog Posts
+%h3 Interesting technical articles I've written:
+%ul
+    %li
+        =link_to "Backbone.js, Coffeescript, Jasmine, Haml and Rails working together", "http://www.ihid.co.uk/blog/backbone-js-coffeescript-jasmine-haml-and-rails-working-together"
+    %li
+        = link_to "Techniques To Secure Your Website With Ruby on Rails (Part 1)", "http://rubysource.com/techniques-to-secure-your-website-with-ruby-on-rails-part-1"
+    %li
+        =link_to "Markup Your Blog Using schema.org", "http://www.ihid.co.uk/blog/markup-your-blog-using-schema-org"
+
+%h3 Recent Blog Posts
 %ul 
     -latest_blog_posts.each do |blog_post|
         %li= link_to blog_post.title, blog_post
 
-%h2 My Open Source Projects
+%h3 My Open Source Projects
 =render "projects/nav"

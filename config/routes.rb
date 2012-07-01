@@ -40,6 +40,14 @@ Blog::Application.routes.draw do
   get "having-a-hobby-project" => redirect("/blog")
   get "blog/schema.org" => redirect("/blog/markup-your-blog-using-schema-org")
   get "blog/search" => redirect("/blog")
+  
+  get "projects/national_rail" => redirect("/projects/national-rail-api")
+  get "projects/email_tracker" => redirect("/pages/email-tracker")
+  get "writing" => redirect("/pages/writing")
+  get "author/ihid/page/2/" => redirect("/")
+  get "blog/search" => redirect("/blog")
+  get "blog.." => redirect("/blog")
+  get "email_tracker" => redirect("/projects/email-tracker")
 
   {
     "a-scope-for-returning-no-records-in-activerecord" => "a-scope-for-returning-no-records-in-activerecord",
@@ -58,6 +66,10 @@ Blog::Application.routes.draw do
     "haml-is-broken-with-partial-layouts" => "haml-is-broken-with-partial-layouts",
     "creating-a-ec2-webserver-using-amazons-basic-ami" => "creating-an-ec2-webserver-using-amazon-s-basic-ami",
     "form-select-tag-does-not-accept-ranges-in-rails-3-2" => "form-select-tag-does-not-accept-ranges-in-rails-3-2",
+    
+    "blog/rails-update_attribute-is-depreciated" => "rails-update_attribute-is-deprecated",
+    "blog/backbone-js-coffeescript-jasm" => "backbone-js-coffeescript-jasmine-haml-and-rails-working-together",
+    "blog/backbone-js-coffeescript-jasmine-haml-and-rails-..." => "backbone-js-coffeescript-jasmine-haml-and-rails-working-together"
     }.each do |old_url, blog_post_title|
     get old_url => redirect("/blog/#{blog_post_title}")
     get "#{old_url}/feed" => redirect("/blog/#{blog_post_title}")

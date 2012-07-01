@@ -1,6 +1,6 @@
 %tr{id:"comment_#{comment.id}"}
     %td= comment.id
-    %td= truncate(comment.post.title, length: 100)
+    %td= truncate(comment.blog_post.title, length: 100)
     %td #{comment.user_name} (#{comment.user_email})
     %td= comment.content
     %td

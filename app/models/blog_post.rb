@@ -9,7 +9,7 @@ class BlogPost < ActiveRecord::Base
   scope :published, where("published_at IS NOT NULL")
   
   def is_published?
-    published_at
+    !!published_at
   end
   
   def publish!

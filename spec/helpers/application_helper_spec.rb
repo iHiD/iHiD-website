@@ -7,7 +7,7 @@ describe ApplicationHelper do
     end
     it "should return metadata title if present" do
       @metadata = {title: "foobar"}
-      helper.html_title.should == "foobar"
+      helper.html_title.should == "foobar - Jeremy Walker - iHiD"
     end
   end
   

@@ -29,7 +29,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = false # Needed to get js to work (?!!!)
+  config.use_transactional_fixtures = true # Needed to get js to work (?!!!)
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -47,3 +47,16 @@ end
 def restore_authentication
   AdminController.send(:alias_method, :check_permissions, :old_check_permissions)
 end
+
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
+ 
+  def self.connection
+    @@shared_connection || retrieve_connection
+  end
+end
+ 
+# Forces all threads to share the same connection. This works on
+# Capybara because it starts the web server in a thread.
+ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection

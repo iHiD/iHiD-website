@@ -1,10 +1,12 @@
 class PagesController < ApplicationController
   
   def index
+    @metadata[:title] = "Pages"
   end
   
   def show
-    @page = Page.find(params[:id])    
+    @page = Page.find(params[:id])
+    @metadata[:title] = @page.name
     render template: "pages/#{@page.template}"
   end
   

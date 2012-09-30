@@ -1,8 +1,10 @@
 module ApplicationHelper
   
   def html_title
-    return @metadata[:title] if @metadata && @metadata[:title]
-    "Jeremy Walker - iHiD"
+    title = ""
+    title << "#{@metadata[:title]} - " if @metadata && @metadata[:title]
+    title << "Jeremy Walker - iHiD"
+    title
   end
   
   def nl2br(text)

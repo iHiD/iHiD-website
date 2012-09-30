@@ -10,7 +10,7 @@ class BlogComment < ActiveRecord::Base
   scope :verified, where(verified:true)
   
   def user_gravatar_url
-    gravatar_id = Digest::MD5::hexdigest(user_email).downcase
+    gravatar_id = Digest::MD5::hexdigest(user_email.strip.downcase)
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=50"
   end
   

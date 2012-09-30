@@ -1,9 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails' #,     :git => 'git://github.com/rails/rails.git'
-gem 'journey'#,   :git => 'git://github.com/rails/journey.git'
-gem 'arel'#,      :git => 'git://github.com/rails/arel.git'
-
 
 gem 'haml'
 gem 'friendly_id'
@@ -15,8 +12,8 @@ gem "remotipart", "~> 1.0"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails'#,   :git => 'git://github.com/rails/sass-rails.git',   :branch => '3-2-stable'
-  gem 'coffee-rails'#, :git => 'git://github.com/rails/coffee-rails.git', :branch => '3-2-stable'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
 end
@@ -26,6 +23,7 @@ group :test, :development do
   gem "capybara"
   gem 'capybara-webkit'
   gem 'sqlite3', :platform => [:ruby]
+  gem 'foreman'
 end
 
 gem 'jquery-rails'

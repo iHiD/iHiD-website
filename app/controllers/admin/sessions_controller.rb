@@ -6,7 +6,7 @@ class Admin::SessionsController < AdminController
   end
   
   def create
-    if params[:password] && Digest::SHA1::hexdigest(params[:password]) == "ca7fad2392194e8473d5e3195e0b332a9cd37423"
+    if params[:password] && Digest::SHA2::hexdigest("#{ENV["IHID_WEBSITE_SALT"]}#{params[:password]}") == ENV["IHID_WEBSITE_HASH"]
       session[:is_admin] = true
       redirect_to (session[:return_to] || admin_blog_posts_path)
     else

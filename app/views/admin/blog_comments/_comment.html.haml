@@ -2,7 +2,8 @@
     %td= comment.id
     %td= truncate(comment.blog_post.title, length: 100)
     %td #{comment.user_name} (#{comment.user_email})
-    %td= comment.content
+    %td
+        %div{style:"word-wrap: break-word;width:266px"}= comment.content
     %td
         -unless comment.verified?
             = link_to "Verify&nbsp;·".html_safe, verify_admin_blog_comment_path(comment), method: :put, remote:true

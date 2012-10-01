@@ -69,7 +69,10 @@ Blog::Application.routes.draw do
     
     "blog/rails-update_attribute-is-depreciated" => "rails-update_attribute-is-deprecated",
     "blog/backbone-js-coffeescript-jasm" => "backbone-js-coffeescript-jasmine-haml-and-rails-working-together",
-    "blog/backbone-js-coffeescript-jasmine-haml-and-rails-..." => "backbone-js-coffeescript-jasmine-haml-and-rails-working-together"
+    "blog/backbone-js-coffeescript-jasmine-haml-and-rails-..." => "backbone-js-coffeescript-jasmine-haml-and-rails-working-together",
+    
+    "blog/rails-update_attribute-is-deprecated" => "rails-update_attribute-is-deprecated-from-3-2-7",
+    "blog/rails-update_attribute-is-depreciated" => "rails-update_attribute-is-deprecated-from-3-2-7"
     }.each do |old_url, blog_post_title|
     get old_url => redirect("/blog/#{blog_post_title}")
     get "#{old_url}/feed" => redirect("/blog/#{blog_post_title}")

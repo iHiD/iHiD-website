@@ -15,4 +15,14 @@ describe "Pages" do
       lambda {visit page_path("somepage")}.should raise_error(ActionView::MissingTemplate, /Missing template pages\/foobar/)
     end
   end
+  
+  describe "GET page/:id" do
+    it "renders the correct page if there is a page" do
+      %w{about speaking writing}.each do |name|
+        Page.create!(name: name, template:name)
+        visit page_path(name)
+        page.status_code.should be 200
+      end
+    end
+  end
 end

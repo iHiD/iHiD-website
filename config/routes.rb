@@ -11,13 +11,6 @@ Blog::Application.routes.draw do
     end
   end
 
-  resources :blog_posts, path: 'blog' do
-    resources :blog_comments 
-  end
-
-  resources :projects
-  resources :pages
-
   ###################
   ## Legacy Routes ##
   ###################
@@ -80,6 +73,13 @@ Blog::Application.routes.draw do
   ##########################
   ## End of Legacy Routes ##
   ##########################
+  
+  resources :blog_posts, path: 'blog' do
+    resources :blog_comments 
+  end
+
+  resources :projects
+  resources :pages
 
   get "sitemap" => "pages#sitemap"
   root :to => 'pages#index'

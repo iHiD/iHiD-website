@@ -8,6 +8,7 @@ gem 'foreigner', :git => 'git://github.com/matthuhiggins/foreigner.git'
 gem 'paperclip'
 gem 'aws-sdk'
 gem "remotipart", "~> 1.0"
+gem 'rakismet'
 
 # Gems used only for assets and not required
 # in production environments by default.

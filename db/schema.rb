@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417201537) do
+ActiveRecord::Schema.define(:version => 20121006220325) do
 
   create_table "blog_comments", :force => true do |t|
-    t.integer  "blog_post_id",                    :null => false
-    t.string   "user_name",                       :null => false
-    t.string   "user_email",                      :null => false
-    t.text     "content",                         :null => false
-    t.boolean  "verified",     :default => false, :null => false
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.integer  "blog_post_id",                     :null => false
+    t.string   "user_name",                        :null => false
+    t.string   "user_email",                       :null => false
+    t.text     "content",                          :null => false
+    t.boolean  "verified",      :default => false, :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "probably_spam", :default => false, :null => false
   end
 
   create_table "blog_images", :force => true do |t|

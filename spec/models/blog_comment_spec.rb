@@ -27,4 +27,16 @@ describe BlogComment do
     comment.verify!
     comment.verified.should == true
   end
+  
+  it "should check whether things are probably spam" do
+    blog_post = BlogPost.create!(title:"My first post", content: "Some content")
+    blog_post.comments.create!(user_name: "Jeremy Walker", user_email: "jez.walker@gmail.com", content: "Hello").probably_spam?.should be_false
+    comment = blog_post.comments.build(user_name: "viagra-test-123", user_email: "viagra-test-123", content: "viagra-test-123")
+    comment.stub user_ip: "127.0.0.1"
+    comment.stub user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.79 Safari/537.4"
+    comment.stub referrer: "http://www.ihid.co.uk/blog/a-scope-for-returning-no-records-in-activerecord"
+    comment.stub permalink: "http://www.ihid.co.uk/blog/a-scope-for-returning-no-records-in-activerecord"
+    comment.save!
+    comment.probably_spam?.should be_true
+  end
 end

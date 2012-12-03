@@ -33,6 +33,10 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
+            
+        %script{type:"text/javascript", src:"http://w.sharethis.com/button/buttons.js"}
+        :javascript
+            stLight.options({publisher: "12d6b158-bc08-4e54-bd03-bddc4d7beaba", doNotHash: false, doNotCopy: false, hashAddressBar: true});
     
     %body
         %header{itemscope:'', itemtype:'http://schema.org/WPHeader'}
@@ -64,7 +68,3 @@
         %footer{itemscope:'', itemtype:'http://schema.org/WPFooter'}
             &copy; Jeremy Walker (iHiD) 2012
             .powered_by Designed and created by #{link_to "iHiD", "http://www.ihid.co.uk"}.
-            
-        %script{type:"text/javascript", src:"http://w.sharethis.com/button/buttons.js"}
-        :javascript
-            stLight.options({publisher: "12d6b158-bc08-4e54-bd03-bddc4d7beaba"});

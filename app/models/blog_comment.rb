@@ -12,11 +12,12 @@ class BlogComment < ActiveRecord::Base
   validates :content, presence:true
   
   scope :verified, where(verified:true)
+  scope :unverified, where(verified:false)
   
   rakismet_attrs author: :user_name, author_email: :user_email
   
   before_create do
-    self.probably_spam = spam?
+    self.probably_spam = false #spam?
     true
   end
   

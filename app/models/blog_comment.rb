@@ -17,7 +17,7 @@ class BlogComment < ActiveRecord::Base
   rakismet_attrs author: :user_name, author_email: :user_email
   
   before_create do
-    self.probably_spam = false #spam?
+    #self.probably_spam = false #spam?
     true
   end
   

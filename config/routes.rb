@@ -36,7 +36,6 @@ Blog::Application.routes.draw do
   
   get "projects/national_rail" => redirect("/projects/national-rail-api")
   get "projects/email_tracker" => redirect("/pages/email-tracker")
-  get "writing" => redirect("/pages/writing")
   get "author/ihid/page/2/" => redirect("/")
   get "blog/search" => redirect("/blog")
   get "blog.." => redirect("/blog")
@@ -79,9 +78,10 @@ Blog::Application.routes.draw do
   end
 
   resources :projects
-  resources :pages
-
   get "sitemap" => "pages#sitemap"
+  resources :pages, only: [:index, :show], path: ""
+  get "pages/:id" => redirect('/%{id}')
+
   root :to => 'pages#index'
 
 end

@@ -7,7 +7,7 @@
         =javascript_include_tag "application"
         =csrf_meta_tags
         
-        %link{rel:"canonical", href:"http://www.ihid.co.uk#{request.path}"}
+        =canonical_link
         %link{rel:"shortcut icon", href:image_path('favicon.ico')}
         
         %script{type:"text/javascript", src:"http://use.typekit.com/oag0rhd.js"}

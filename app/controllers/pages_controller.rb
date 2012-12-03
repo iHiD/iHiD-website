@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
     @metadata[:title] = @page.name
+    @metadata[:canonical] = @page.slug
     render template: "pages/#{@page.template}"
   end
   

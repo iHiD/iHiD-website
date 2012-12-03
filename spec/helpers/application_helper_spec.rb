@@ -26,9 +26,22 @@ describe ApplicationHelper do
     end
   end
   
+  describe "canonical_link" do
+    it "should respect request.path" do
+      helper.stub(request: Object.new.tap{|x|x.stub(path: "/foobar")})
+      helper.canonical_link.should == "<link href=\"http://www.ihid.co.uk/foobar\" rel=\"canonical\" />"
+    end
+    
+    it "should be overridden by metadata" do
+      helper.stub(request: Object.new.tap{|x|x.stub(path: "/foobar")})
+      @metadata = {canonical: "barfoo"}
+      helper.canonical_link.should == "<link href=\"http://www.ihid.co.uk/barfoo\" rel=\"canonical\" />"
+    end
+  end
+  
   describe "my_age_in_years" do
     it "should return 28" do
-      helper.my_age_in_years.should == 28
+      helper.my_age_in_years.should == 29
     end
   end
   

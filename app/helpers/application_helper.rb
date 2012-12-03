@@ -26,4 +26,9 @@ module ApplicationHelper
     BlogPost.published.order("published_at desc").limit(5)
   end
   
+  def canonical_link
+    url = (@metadata && @metadata[:canonical]) || request.path
+    url = url.prepend("/") unless url.starts_with?("/")
+    tag(:link, rel:"canonical", href:"http://www.ihid.co.uk#{url}")
+  end
 end

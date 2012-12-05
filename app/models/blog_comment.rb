@@ -17,13 +17,13 @@ class BlogComment < ActiveRecord::Base
   rakismet_attrs author: :user_name, author_email: :user_email
   
   before_create do
-    #self.probably_spam = false #spam?
+    self.probably_spam = false #spam?
     true
   end
   
   def user_gravatar_url
     gravatar_id = Digest::MD5::hexdigest(user_email.strip.downcase)
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=50"
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=50&d=mm"
   end
   
   def verify!

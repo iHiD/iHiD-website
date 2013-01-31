@@ -1,7 +1,15 @@
 %h3 Installation
 %p To use in Rails, simply add this to your Gemfile:
 %pre 
-    %code gem "national_rail"
+    %code gem "email_tracker"
+    
+%p The run the migrations:
+%pre 
+    %code 
+        rake email_tracker:install:migrations
+        rake rake:db:migrate
+
+%p The gem should just start running. All emails will have an embedded tracking image and all links will be tracked.
 
 %h3 Example Usage
 %p The gem should just start running. All emails will have an embedded tracking image and all links will be tracked.

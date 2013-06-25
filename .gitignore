@@ -12,3 +12,5 @@
 .env
 
 .DS_Store
+
+*.swp

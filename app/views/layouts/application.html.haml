@@ -40,14 +40,16 @@
     
     %body
         %header{itemscope:'', itemtype:'http://schema.org/WPHeader'}
-            .inner
+            .row
                 %h1= link_to "iHiD", root_path
                 %h2= link_to "by Jeremy Walker - 75kg human · 175g plastic", root_path
                 =image_tag "header_image.jpg", id: "header_image"
         
-        #header_shadow
-        #main
-            %nav{itemscope:'', itemtype:'http://schema.org/WPSideBar'}
+        #main.row
+            #content.large-9.columns
+                =content_for?(:content) ? yield(:content) : yield
+
+            %nav.large-3.columns{itemscope:'', itemtype:'http://schema.org/WPSideBar'}
                 %h3 Introduction
                 %ul 
                     %li= link_to "Home", root_path
@@ -62,9 +64,13 @@
                     %li{style:"margin-top:5px"}= link_to "Browse All Posts", blog_posts_path, class: "btn"
                 %h3 Open Source Projects
                 =render "projects/nav"
+                
+                -#
+                    %a.twitter-timeline{href:"https://twitter.com/iHiD", "data-widget-id" => "296995136372609024"} Tweets by @iHiD
+                    :javascript
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
             
-            #content
-                =content_for?(:content) ? yield(:content) : yield
         %footer{itemscope:'', itemtype:'http://schema.org/WPFooter'}
-            &copy; Jeremy Walker (iHiD) 2012
-            .powered_by Designed and created by #{link_to "iHiD", "http://www.ihid.co.uk"}.
+            .row
+                &copy; Jeremy Walker (iHiD) 2012
+                .powered_by Designed and created by #{link_to "iHiD", "http://www.ihid.co.uk"}.

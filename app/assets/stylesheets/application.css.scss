@@ -1,11 +1,36 @@
 @import "normalize.css.scss";
+@import '../../../vendor/assets/stylesheets/foundation.css.scss';
 @import "variables.css.scss";
 
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family: $font-family, calibri;
+    font-weight:300;
+}
+
+pre,
+code,
+kbd,
+samp {
+    font-family: "droid-sans-mono", monospace, serif;
+    _font-family: "droid-sans-mono", 'courier new', monospace;
+    font-size: 0.9em;
+}
 body {
-    font-size:13pt;
+    font-size:14pt;
+    line-height:26px;
     margin:0px;
     background:$color_3;
 }
+.row {
+    max-width:1000px;
+}
+
 a {
     color:$color_1;
     text-decoration:none;
@@ -24,22 +49,18 @@ strong {
     font-weight:normal;
 }
 
-header .inner, #main, footer {
-    width:$width;
-    margin:0px auto;
-}
-
 header {
     background:$color_1;
     color:#fff;
-    .inner {
+    .row {
         position:relative;
+        padding:0px $main_padding;
         #header_image {
             border:5px solid $color_3;
             width:210px;
             height:210px;
             position:absolute;
-            right:-5px;
+            right:25px;
             top:20px;
         }
     }
@@ -48,12 +69,14 @@ header {
         padding:10px 0px 0px 0px;
         a {
             font-size:80px;
+            line-height:100px;
             font-weight:300;
             color:#fff;
             display:inline-block;
         }
         span {
           font-size:20px;
+          line-height:20px;
           color:#fff;
           font-weight:300;
           display:inline-block;
@@ -64,22 +87,16 @@ header {
         padding:0px 0px 10px 0px;
         a {
           font-size:25px;
+          line-height:40px;
           color:#fff;
           font-weight:300;
         }
     }
-
 }
 
-#header_shadow {
-    height:6px;
-    background: -webkit-linear-gradient(top, $color_1, $color_3);
-}
 #main {
     nav {
-        float:right;
-        width:$nav_width;
-        padding:0px;
+        padding:0px $main_padding 0px 0px;
         text-align:right;
         border-left:$nav_border_width solid $color_2;
         margin-top:85px;
@@ -110,9 +127,7 @@ header {
         }
     }
     #content {
-        float:left;
-        width:$content_width;
-        padding:$main_padding $main_padding $main_padding 0px;
+        padding:$main_padding $main_padding $main_padding $main_padding;
         h3 {
             margin-bottom:10px;
         }
@@ -148,12 +163,16 @@ header {
 }
 footer {
     clear:both;
-    border-top:1px solid $color_2;
+    border-top: 2px solid $color_2;
     padding:10px 0px;
     
     .powered_by {
         float:right;
     }   
+}
+
+.stButton>span {
+    box-sizing: content-box;
 }
 
 @import "blog_comments.css.scss";

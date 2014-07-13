@@ -1,0 +1,60 @@
+@mixin normal-font($fa: null) {
+    @if $fa == null {
+        font-family: "Proxima Nova Regular", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    } @else {
+        font-family: FontAwesome;
+    }
+    font-weight: normal;
+    font-size-adjust: 0.488;
+}
+
+@mixin thin-font($fa: null) {
+    @if $fa == null {
+        font-family: "Proxima Nova Thin", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    } @else {
+        font-family: FontAwesome;
+    }
+    font-weight: 100;
+    font-size-adjust: 0.488;
+}
+
+@mixin light-font($fa: null) {
+    @if $fa == null {
+        font-family: "Proxima Nova Light", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    } @else {
+        font-family: FontAwesome;
+    }
+    font-weight: 300;
+    font-size-adjust: 0.488;
+}
+
+@mixin semibold-font($fa: null) {
+    @if $fa == null {
+        font-family: "Proxima Nova Semibold", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    } @else {
+        font-family: FontAwesome;
+    }
+    font-weight: 600;
+    font-size-adjust: 0.488;
+}
+
+@mixin bold-font($fa: null) {
+    @if $fa == null {
+        font-family: "Proxima Nova Bold", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    } @else {
+        font-family: FontAwesome;
+    }
+    font-weight: bold;
+    font-size-adjust: 0.488;
+}
+
+@mixin font-size($size: 1.6, $line_height: null) {
+    font-size: ($size * 10) + px;
+    font-size: $size + rem;
+    @if $line_height == null {
+        $line_height: 1.428 * $size;
+    }
+    line-height: ($line_height * 10) + px;
+    line-height: $line_height + rem;
+}
+

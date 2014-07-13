@@ -1,28 +1,28 @@
-#blog_post{itemscope:'', itemtype:'http://schema.org/BlogPosting'}
+#blog_post.prose{itemscope:'', itemtype:'http://schema.org/BlogPosting'}
     %h2{itemprop:'name headline'}= @blog_post.title
     .byline
-        Written by 
+        Written by
         %span{itemprop:'author', itemscope:'', itemtype:'http://schema.org/Person'}
             %span{itemprop:'name'}
                 %a{href:"https://plus.google.com/111007558771439626078", rel:'author', itemprop:'url'} Jeremy Walker
-        on 
+        on
         %time{itemprop:'datePublished', datetime: @blog_post.published_at.strftime("%FT%R")}= @blog_post.published_at.strftime("%A %b #{@blog_post.published_at.day.ordinalize} %Y")
     =render "shared/social_links"
     .content{itemprop:'articleBody'}
         =raw @blog_post.content
-        
-    %h2 Share This Post
+
+    %h3 Share This Post
     =render "shared/social_links"
-        
-    %h2 Comments
+
+    %h3 Comments
     .comments
-    
+
         -if(flash[:awaiting_verification])
             =render "blog_comments/awaiting_verification"
-    
+
         -if(@blog_post.comments.verified.size > 0)
             =render partial: "blog_comments/comment", collection: @blog_post.comments.verified
         -else
             .no_comments No-one has posted a comment yet. Be the first!
-        
+
     =render "blog_comments/new", blog_post: @blog_post

@@ -2,26 +2,44 @@
 %html
     %head
         %title= html_title
-        
-        =stylesheet_link_tag "application", :media => "all"
-        =javascript_include_tag "application"
-        =csrf_meta_tags
-        
+        = stylesheet_link_tag "application", :media => "all"
+        = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Euphoria+Script', media: 'all'
+        = stylesheet_link_tag '//f.fontdeck.com/s/css/o6QfaKWxqPEublQOv9rluKl/2c4/www.ordinoapp.com/42127.css', media: 'all'
+        = csrf_meta_tags
+
+        %meta{name:"google-site-verification", content:"6VD3DtSnJfVMNRAmWeFIhecUhhllVaJsjnwxQu2ac6w"}
+
         =canonical_link
         %link{rel:"shortcut icon", href:image_path('favicon.ico')}
-        
-        %script{type:"text/javascript", src:"http://use.typekit.com/oag0rhd.js"}
-        %script{type:"text/javascript"} try{Typekit.load();}catch(e){}
-        
-        %meta{name:"google-site-verification", content:"6VD3DtSnJfVMNRAmWeFIhecUhhllVaJsjnwxQu2ac6w"}
-        
-        %script{src:"http://yandex.st/highlightjs/6.2/highlight.min.js"}
-        %link{rel:"stylesheet", href:"http://yandex.st/highlightjs/6.2/styles/github.min.css"}
-        %script 
-            hljs.showLineNumbers = true;
-            hljs.stripEmptyLines = true;
-            hljs.initHighlightingOnLoad();
-            
+
+    %body
+
+        %header{itemscope:'', itemtype:'http://schema.org/WPHeader'}
+            %h1
+                = link_to root_path do
+                    =image_tag "header_image.jpg", id: "header_image"
+                    .name Jeremy Walker
+            = link_to "Software Developer & Social Entrepreneur", root_path, class: 'tagline'
+
+        %nav
+            .container
+                = link_to "Home", root_path
+                = link_to "About", about_path
+                = link_to "Open Source", open_source_path
+                = link_to "Blog", blog_posts_path
+                = link_to "Writing", writing_path
+                = link_to "Speaking", speaking_path
+
+        %main
+            =content_for?(:content) ? yield(:content) : yield
+
+        %footer{itemscope:'', itemtype:'http://schema.org/WPFooter'}
+            .container
+                &copy; Jeremy Walker (iHiD) 2005 - 2014
+                .powered_by Site designed and created by #{link_to "iHiD", "http://www.ihid.co.uk"}.
+
+        =javascript_include_tag "application"
+
         :javascript
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-17313109-2']);
@@ -33,44 +51,28 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
-            
+
+        =javascript_include_tag "http://code.jquery.com/jquery-2.1.1.min.js"
+        :javascript
+            $(window).scroll(function () {
+                fix = $(window).scrollTop() > $('header').outerHeight();
+                console.log(fix);
+
+                if(fix) {
+                    $("body").addClass("fixed-nav");
+                }
+                else {
+                    $("body").removeClass("fixed-nav");
+                }
+            });
+
+        %script{src:"http://yandex.st/highlightjs/6.2/highlight.min.js"}
+        %link{rel:"stylesheet", href:"http://yandex.st/highlightjs/6.2/styles/github.min.css"}
+        %script
+            hljs.showLineNumbers = true;
+            hljs.stripEmptyLines = true;
+            hljs.initHighlightingOnLoad();
+
         %script{type:"text/javascript", src:"http://w.sharethis.com/button/buttons.js"}
         :javascript
             stLight.options({publisher: "12d6b158-bc08-4e54-bd03-bddc4d7beaba", doNotHash: true, doNotCopy: true, hashAddressBar: false});
-    
-    %body
-        %header{itemscope:'', itemtype:'http://schema.org/WPHeader'}
-            .row
-                %h1= link_to "iHiD", root_path
-                %h2= link_to "by Jeremy Walker - 75kg human · 175g plastic", root_path
-                =image_tag "header_image.jpg", id: "header_image"
-        
-        #main.row
-            #content.large-9.columns
-                =content_for?(:content) ? yield(:content) : yield
-
-            %nav.large-3.columns{itemscope:'', itemtype:'http://schema.org/WPSideBar'}
-                %h3 Introduction
-                %ul 
-                    %li= link_to "Home", root_path
-                    %li= link_to "About Me", page_path('about')
-                    %li= link_to "Writing", page_path('writing')
-                    %li= link_to "Speaking", page_path('speaking')
-                    %li= link_to "Projects", projects_path
-                %h3 Recent Blog Posts
-                %ul 
-                    -latest_blog_posts.each do |blog_post|
-                        %li= link_to truncate("#{blog_post.title}", length:28), blog_post, title:blog_post.title
-                    %li{style:"margin-top:5px"}= link_to "Browse All Posts", blog_posts_path, class: "btn"
-                %h3 Open Source Projects
-                =render "projects/nav"
-                
-                -#
-                    %a.twitter-timeline{href:"https://twitter.com/iHiD", "data-widget-id" => "296995136372609024"} Tweets by @iHiD
-                    :javascript
-                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-            
-        %footer{itemscope:'', itemtype:'http://schema.org/WPFooter'}
-            .row
-                &copy; Jeremy Walker (iHiD) 2012
-                .powered_by Designed and created by #{link_to "iHiD", "http://www.ihid.co.uk"}.

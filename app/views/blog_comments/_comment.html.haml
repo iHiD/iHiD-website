@@ -1,6 +1,6 @@
 .comment{itemscope:'', itemtype:'http://schema.org/UserComments'}
     =image_tag comment.user_gravatar_url, class:"user_gravatar"
-    %h3{itemprop:'creator', itemscope:'', itemtype:'http://schema.org/Person'}
+    %h4{itemprop:'creator', itemscope:'', itemtype:'http://schema.org/Person'}
         %span{itemprop:'name'}= comment.user_name
     %time.date{itemprop:'commentTime', datetime:comment.created_at.strftime("%FT%R")}= comment.created_at.strftime("%A %b #{comment.created_at.day.ordinalize} %Y")
     .content{itemprop:'commentText'}= raw nl2p h(comment.content)

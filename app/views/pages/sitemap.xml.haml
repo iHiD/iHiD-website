@@ -1,13 +1,13 @@
 !!! XML
 %urlset{"xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9", "xmlns:image" => "http://www.google.com/schemas/sitemap-image/1.1"}
 
-    =sitemap_url_tag("/", Date.new(2012, 02, 17), "weekly", "1")
+    =sitemap_url_tag(root_path, Date.new(2014, 07, 13), "monthly", "1")
+    =sitemap_url_tag(about_path, Date.new(2014, 07, 13), "monthly", "1")
+    =sitemap_url_tag(speaking_path, Date.new(2014, 07, 13), "monthly", "1")
+    =sitemap_url_tag(about_path, Date.new(2014, 07, 13), "monthly", "1")
+    =sitemap_url_tag(writing_path, Date.new(2014, 07, 13), "monthly", "1")
+    =sitemap_url_tag(open_source_path, Date.new(2014, 07, 13), "monthly", "1")
+    =sitemap_url_tag(blog_posts_path, Date.new(2014, 07, 13), "monthly", "1")
 
-    -@pages.each do |page|
-        =sitemap_url_tag(page_url(page), page.updated_at, "monthly", "1")
-
-    -@projects.each do |project|
-        =sitemap_url_tag(project_url(project), project.updated_at, "weekly", "1")
-    
     -@blog_posts.each do |blog_post|
         =sitemap_url_tag(blog_post_url(blog_post), blog_post.updated_at, "weekly", "1")

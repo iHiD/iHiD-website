@@ -1,15 +1,5 @@
 Blog::Application.routes.draw do
 
-  namespace :admin do
-    resource :session
-    resources :blog_images
-    resources :blog_posts do
-      put :publish, on: :member
-    end
-    resources :blog_comments do
-      put :verify, on: :member
-    end
-  end
 
   ###################
   ## Legacy Routes ##
@@ -25,15 +15,15 @@ Blog::Application.routes.draw do
   get "2011/06" => redirect("/blog")
   get "2012/01" => redirect("/blog")
   get "2012/02" => redirect("/blog")
-  
+
   get "about_me" => redirect("/pages/about")
-  
+
   get "blog/creating-an-ec2-webserver-using-amazon-s-basic-ami--2" => redirect("blog/creating-an-ec2-webserver-using-amazon-s-basic-ami")
   get "removing-duplicate-code-by-using-blocks-in-ruby" => redirect("/blog")
   get "having-a-hobby-project" => redirect("/blog")
   get "blog/schema.org" => redirect("/blog/markup-your-blog-using-schema-org")
   get "blog/search" => redirect("/blog")
-  
+
   get "projects/national_rail" => redirect("/projects/national-rail-api")
   get "projects/email_tracker" => redirect("/pages/email-tracker")
   get "author/ihid/page/2/" => redirect("/")
@@ -58,29 +48,44 @@ Blog::Application.routes.draw do
     "haml-is-broken-with-partial-layouts" => "haml-is-broken-with-partial-layouts",
     "creating-a-ec2-webserver-using-amazons-basic-ami" => "creating-an-ec2-webserver-using-amazon-s-basic-ami",
     "form-select-tag-does-not-accept-ranges-in-rails-3-2" => "form-select-tag-does-not-accept-ranges-in-rails-3-2",
-    
+
     "blog/rails-update_attribute-is-depreciated" => "rails-update_attribute-is-deprecated",
     "blog/backbone-js-coffeescript-jasm" => "backbone-js-coffeescript-jasmine-haml-and-rails-working-together",
     "blog/backbone-js-coffeescript-jasmine-haml-and-rails-..." => "backbone-js-coffeescript-jasmine-haml-and-rails-working-together",
-    
+
     "blog/rails-update_attribute-is-deprecated" => "rails-update_attribute-is-deprecated-from-3-2-7",
     "blog/rails-update_attribute-is-depreciated" => "rails-update_attribute-is-deprecated-from-3-2-7"
     }.each do |old_url, blog_post_title|
     get old_url => redirect("/blog/#{blog_post_title}")
     get "#{old_url}/feed" => redirect("/blog/#{blog_post_title}")
   end
+
+  get "pages" => redirect("/")
+
   ##########################
   ## End of Legacy Routes ##
   ##########################
-  
+
+  namespace :admin do
+    resource :session
+    resources :blog_images
+    resources :blog_posts do
+      put :publish, on: :member
+    end
+    resources :blog_comments do
+      put :verify, on: :member
+    end
+  end
   resources :blog_posts, path: 'blog' do
-    resources :blog_comments 
+    resources :blog_comments
   end
 
   resources :projects
   get "sitemap" => "pages#sitemap"
-  resources :pages, only: [:index, :show], path: ""
-  get "pages/:id" => redirect('/%{id}')
+  get "about" => "pages#about"
+  get "speaking" => "pages#speaking"
+  get "writing" => "pages#writing"
+  get "open_source" => "pages#open_source"
 
   root :to => 'pages#index'
 

@@ -1,13 +1,14 @@
 .new_blog_comment
     %h3 Post a Comment
+    %p I'd love to hear your thoughts :)
     =form_for [blog_post, BlogComment.new], remote:true, html: {class:"new_blog_comment_form"} do |f|
         =f.label :user_name, "Your Name"
         =f.text_field :user_name
-    
+
         =f.label :user_email, raw("Your Email - used for your #{link_to "Gravatar", "http://gravatar.com"} and so we can tell you if someone replies.")
         =f.text_field :user_email
-    
+
         =f.label :content, "What do you want to say?"
         =f.text_area :content
-    
+
         =submit_tag "Post Comment", disable_with: "Posting Comment..."
